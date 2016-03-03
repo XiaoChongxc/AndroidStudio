@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.example.xc.myapp"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+//    signingConfigs{
+//        config{
+//            try {
+//                storeFile file('common.keystore')
+//                storePassword KEYSTORE_PASSWORD
+//                keyAlias 'common.keystore'
+//                keyPassword KEY_PASSWORD
+//            }
+//            catch (ex) {
+//                throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
+//            }
+//
+//        }
+//    }
+
+
+
+
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    // 网络请求
+    compile 'com.squareup.okhttp:okhttp:2.1.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
+    compile 'com.squareup.retrofit:retrofit-converters:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
+    compile 'com.squareup.retrofit:retrofit-adapters:2.0.0-beta2'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    //RecyclerView 的item动画
+//    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
+    // layout 注解，简化findViewById
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.code.gson:gson:2.2.2'
+
+
+    compile 'com.android.support:support-v4:21.+'
+
+    compile files('libs/Android_Location_V1.3.3.jar')
+    compile files('libs/Android_Map_2.5.1.20150827.jar')
+
+    compile files('libs/lite-orm-1.7.0.jar')
+}
