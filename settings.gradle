@@ -1,0 +1,3 @@
+include ':mytest', ':AZExplosion', ':customshapeimageview', ':myapp'
+include ':aMapLocationDemo2x'
+include ':yunbademo'
