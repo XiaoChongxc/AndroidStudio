@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="虚线样式1"
+
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:background="@drawable/bg_line1"
+        android:layerType="software"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="虚线样式2"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layerType="software"
+        android:background="@drawable/bg_line2"
+        android:layout_height="10dp"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round"
+        android:text="实线圆角框" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round2"
+        android:text="虚线圆角框" />
+
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round3"
+        android:text="渐变+部分圆角框" />
+
+
+
+
+
+</LinearLayout>
