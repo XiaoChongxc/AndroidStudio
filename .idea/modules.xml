@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AZExplosion/AZExplosion.iml" filepath="$PROJECT_DIR$/AZExplosion/AZExplosion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudio.iml" filepath="$PROJECT_DIR$/AndroidStudio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aMapLocationDemo2x/aMapLocationDemo2x.iml" filepath="$PROJECT_DIR$/aMapLocationDemo2x/aMapLocationDemo2x.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customshapeimageview/customshapeimageview.iml" filepath="$PROJECT_DIR$/customshapeimageview/customshapeimageview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapp/myapp.iml" filepath="$PROJECT_DIR$/myapp/myapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mytest/mytest.iml" filepath="$PROJECT_DIR$/mytest/mytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yunbademo/yunbademo.iml" filepath="$PROJECT_DIR$/yunbademo/yunbademo.iml" />
+    </modules>
+  </component>
+</project>
