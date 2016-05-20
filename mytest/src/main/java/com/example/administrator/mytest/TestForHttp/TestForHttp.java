@@ -12,6 +12,7 @@ import com.example.administrator.mytest.R;
 
 import com.example.administrator.mytest.TestForHttp.Bean.CommonResultBean;
 import com.example.administrator.mytest.TestForHttp.Dao.LoginDao;
+
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
@@ -25,7 +26,6 @@ import rx.schedulers.Schedulers;
  * FIXME
  */
 public class TestForHttp extends Activity {
-
 
 
     @Override
