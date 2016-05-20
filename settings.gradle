@@ -1,3 +1,1 @@
-include ':mytest', ':AZExplosion', ':customshapeimageview', ':myapp'
-include ':aMapLocationDemo2x'
-include ':yunbademo'
+include ':mytest', ':AZExplosion', ':customshapeimageview', ':myapp', ':alert_lib', ':nightmode', ':transformPagelibrary'

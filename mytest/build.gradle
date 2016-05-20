@@ -6,8 +6,7 @@ def buildTime() {
 }
 android {
     compileSdkVersion 21
-    buildToolsVersion "23.0.2"
-
+    buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.example.administrator.mytest"
         minSdkVersion 15
@@ -99,4 +98,6 @@ dependencies {
 //    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
     // layout 注解，简化findViewById
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile project(':alert_lib')
+    compile project(':transformPagelibrary')
 }

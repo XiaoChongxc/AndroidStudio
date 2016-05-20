@@ -21,7 +21,7 @@ public class MyApplication  extends Application {
 
     private static MyApplication mApplication;
 
-    private static  MyApplication getInstance(){
+    public  static  MyApplication getInstance(){
         if(mApplication==null){
             mApplication=new MyApplication();
         }
@@ -75,11 +75,22 @@ public class MyApplication  extends Application {
     /**对方的位置*/
     private PoiItem personLocation;
 
+    /**自己的位置*/
+    private PoiItem myLocation;
+
     public PoiItem getPersonLocation() {
         return personLocation;
     }
 
     public void setPersonLocation(PoiItem personLocation) {
         this.personLocation = personLocation;
+    }
+
+    public PoiItem getMyLocation() {
+        return myLocation;
+    }
+
+    public void setMyLocation(PoiItem myLocation) {
+        this.myLocation = myLocation;
     }
 }

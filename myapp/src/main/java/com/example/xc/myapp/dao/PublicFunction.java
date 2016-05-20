@@ -8,6 +8,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.amap.api.location.AMapLocation;
@@ -35,6 +36,12 @@ public class PublicFunction {
     public static final  String BTN_2_NOTIFY_BROADCAST="COM.XC.BROADCAST.NOTIFY_BTN_2";
 
     public static final  String BTN_3_NOTIFY_BROADCAST="COM.XC.BROADCAST.NOTIFY_BTN_3";
+
+    public static final  String  SendMessage="getLocation";
+
+    public  static final String MY_CUSTOM_BROADCAST="com.xc.broadcast.custom";
+
+
 
 
     private static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -166,5 +173,12 @@ public class PublicFunction {
         void doThing(String location,String latitude,String longitude,String date);
 
     }
+    //获取手机信息
+    public static String getUid(Context ctx){
+        TelephonyManager TelephonyMgr = (TelephonyManager)ctx.getSystemService(ctx.TELEPHONY_SERVICE);
+        String szImei = TelephonyMgr.getDeviceId();
+        return szImei;
+    }
+
 
 }
