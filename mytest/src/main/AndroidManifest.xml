@@ -50,7 +50,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Listview.ListViewActivity" >
+            android:name=".Glide.GlideActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

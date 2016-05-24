@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/myapp/myapp.iml" filepath="$PROJECT_DIR$/myapp/myapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/mytest/mytest.iml" filepath="$PROJECT_DIR$/mytest/mytest.iml" />
       <module fileurl="file://$PROJECT_DIR$/nightmode/nightmode.iml" filepath="$PROJECT_DIR$/nightmode/nightmode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/retrofitmvpdagger/retrofitmvpdagger.iml" filepath="$PROJECT_DIR$/retrofitmvpdagger/retrofitmvpdagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/transformPagelibrary/transformPagelibrary.iml" filepath="$PROJECT_DIR$/transformPagelibrary/transformPagelibrary.iml" />
     </modules>
   </component>

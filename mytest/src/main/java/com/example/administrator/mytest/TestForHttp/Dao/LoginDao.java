@@ -24,7 +24,7 @@ import retrofit.http.QueryMap;
 
 public class LoginDao {
 
-private static LoginService loginService;
+private static  volatile LoginService loginService;
 
     public static LoginService getDaoService(Context ctx){
         if(loginService==null){
