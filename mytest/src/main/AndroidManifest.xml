@@ -50,7 +50,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Glide.GlideActivity" >
+            android:name=".MaterialDesign.RecyclerView.RecycleViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

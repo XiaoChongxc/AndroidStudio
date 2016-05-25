@@ -1,4 +1,4 @@
-package com.example.administrator.mytest.RecyclerView;/**
+package com.example.administrator.mytest.MaterialDesign.RecyclerView;/**
  * Created by  @just_for_happy (@开心就好)   on 2015/12/28.
  * Date: 2015-12-28
  * Time: 14:25

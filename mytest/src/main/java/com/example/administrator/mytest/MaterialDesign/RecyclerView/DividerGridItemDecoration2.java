@@ -1,4 +1,4 @@
-package com.example.administrator.mytest.RecyclerView;
+package com.example.administrator.mytest.MaterialDesign.RecyclerView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
