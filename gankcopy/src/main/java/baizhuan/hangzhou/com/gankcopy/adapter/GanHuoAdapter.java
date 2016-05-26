@@ -6,20 +6,24 @@ import android.view.ViewGroup;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
-import baizhuan.hangzhou.com.gankcopy.adapter.holder.MeiZhiViewHolder;
+import baizhuan.hangzhou.com.gankcopy.adapter.holder.GanHuoViewHolder;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 
 /**
- * Created by gaohailong on 2016/5/17.
+ * User:    Xiaoc
+ * 项目名:  AndroidStudio
+ * Package: baizhuan.hangzhou.com.gankcopy.adapter
+ * Date:    2016-05-26
+ * Time:    16:01
+ * 类描述：
  */
-public class MeiZhiAdapter extends RecyclerArrayAdapter<GanHuo.Result> {
-
-    public MeiZhiAdapter(Context context) {
+public class GanHuoAdapter extends RecyclerArrayAdapter<GanHuo.Result> {
+    public GanHuoAdapter(Context context) {
         super(context);
     }
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MeiZhiViewHolder(parent);
+        return new GanHuoViewHolder(parent);
     }
 }

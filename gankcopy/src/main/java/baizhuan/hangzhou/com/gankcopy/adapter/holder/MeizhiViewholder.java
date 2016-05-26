@@ -11,17 +11,12 @@ import baizhuan.hangzhou.com.gankcopy.R;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 
 /**
- * User:    Xiaoc
- * 项目名:  AndroidStudio
- * Package: baizhuan.hangzhou.com.gankcopy.adapter.holder
- * Date:    2016-05-25
- * Time:    17:25
- * 类描述：
+ * Created by gaohailong on 2016/5/17.
  */
-public class MeizhiViewholder extends BaseViewHolder<GanHuo.Result> {
+public class MeiZhiViewHolder extends BaseViewHolder<GanHuo.Result> {
     private ImageView image;
 
-    public MeizhiViewholder(ViewGroup parent) {
+    public MeiZhiViewHolder(ViewGroup parent) {
         super(parent, R.layout.meizhi_item);
         image = $(R.id.image);
     }
@@ -31,7 +26,6 @@ public class MeizhiViewholder extends BaseViewHolder<GanHuo.Result> {
         super.setData(data);
         Glide.with(getContext())
                 .load(data.getUrl())
-                .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(image);
     }

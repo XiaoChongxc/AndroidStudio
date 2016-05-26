@@ -37,7 +37,7 @@ import rx.schedulers.Schedulers;
  * Time:    16:35
  * 类描述：
  */
-public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnLoadMoreListener {
+public class IOSFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnLoadMoreListener {
     List<GanHuo.Result> list;
     @Bind(R.id.recycleview)
     EasyRecyclerView recycleview;
@@ -69,7 +69,8 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         adapter2.setError(R.layout.error_layout);
 
         //这行代码 需要 运行在 最后面 ， 不然  ，  footview 加载不出来
-//        adapter2.addAll(list);
+        adapter2.addAll(list);
+
         onRefresh();
     }
 
@@ -107,10 +108,10 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @Override
     public void onRefresh() {
-        getData("Android", 20, 1);
+        getData("iOS", 20, 1);
     }
 
-    int page =1;
+    int page = 1;
     @Override
     public void onLoadMore() {
         getData("Android", 20, page);

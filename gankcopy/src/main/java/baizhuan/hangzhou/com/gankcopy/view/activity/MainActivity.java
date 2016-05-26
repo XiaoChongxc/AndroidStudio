@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import baizhuan.hangzhou.com.gankcopy.R;
 import baizhuan.hangzhou.com.gankcopy.view.fragment.AndroidFragment;
 import baizhuan.hangzhou.com.gankcopy.view.fragment.FuliFragment;
-import baizhuan.hangzhou.com.gankcopy.view.fragment.IosFragment;
+import baizhuan.hangzhou.com.gankcopy.view.fragment.IOSFragment;
 import baizhuan.hangzhou.com.gankcopy.view.fragment.VideoFragment;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,11 +46,10 @@ public class MainActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
         //fragment
         list = new ArrayList<>();
-        list.add(new AndroidFragment());
         list.add(new FuliFragment());
-        list.add(new IosFragment());
+        list.add(new AndroidFragment());
+        list.add(new IOSFragment());
         list.add(new VideoFragment());
-        //viewpager
         pager.setOffscreenPageLimit(title.length);
         pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
