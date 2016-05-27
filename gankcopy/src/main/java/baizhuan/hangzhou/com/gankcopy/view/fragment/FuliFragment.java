@@ -1,11 +1,12 @@
 package baizhuan.hangzhou.com.gankcopy.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +20,10 @@ import java.util.List;
 
 import baizhuan.hangzhou.com.gankcopy.R;
 import baizhuan.hangzhou.com.gankcopy.adapter.MeiZhiAdapter;
-import baizhuan.hangzhou.com.gankcopy.adapter.TextForAdapter;
 import baizhuan.hangzhou.com.gankcopy.http.APIService;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 import baizhuan.hangzhou.com.gankcopy.util.RecycleSpace;
+import baizhuan.hangzhou.com.gankcopy.view.activity.ShowBigActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Subscriber;
@@ -41,8 +42,7 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     List<GanHuo.Result> list;
     @Bind(R.id.recycleview)
     EasyRecyclerView recycleview;
-    MeiZhiAdapter adapter;
-    TextForAdapter adapter2;
+    MeiZhiAdapter adapter2;
 
     @Nullable
     @Override
@@ -57,9 +57,9 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         super.onActivityCreated(savedInstanceState);
         list = new ArrayList<>();
 
-        adapter2 = new TextForAdapter(getActivity());
-//        recycleview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        recycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter2 = new MeiZhiAdapter(getActivity());
+        recycleview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+//        recycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycleview.setAdapterWithProgress(adapter2);
         recycleview.setRefreshListener(this);
 
@@ -67,6 +67,17 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         adapter2.setMore(R.layout.load_more_layout, this);
         adapter2.setNoMore(R.layout.no_more_layout);
         adapter2.setError(R.layout.error_layout);
+
+        adapter2.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                //大图
+                Intent intent=new Intent(getActivity(), ShowBigActivity.class);
+                intent.putExtra(ShowBigActivity.DATA_SOURCE_OBJECT,adapter2.getItem(position).getUrl());
+                startActivity(intent);
+            }
+        });
+
 
         //这行代码 需要 运行在 最后面 ， 不然  ，  footview 加载不出来
 //        adapter2.addAll(list);
@@ -90,7 +101,6 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         //联网失败
                         Snackbar.make(recycleview, "NO WIFI，不能愉快的看妹纸啦..", Snackbar.LENGTH_LONG).show();
                     }
-
                     @Override
                     public void onNext(GanHuo ganHuo) {
                         adapter2.addAll(ganHuo.getResults());
@@ -107,7 +117,9 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @Override
     public void onRefresh() {
-        getData("Android", 20, 1);
+
+        adapter2.clear();
+        getData("福利", 20, 1);
     }
 
     int page =1;

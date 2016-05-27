@@ -26,6 +26,8 @@ public class MeiZhiViewHolder extends BaseViewHolder<GanHuo.Result> {
         super.setData(data);
         Glide.with(getContext())
                 .load(data.getUrl())
+                .placeholder(R.drawable.img_load)
+                .error(R.drawable.img_load_error)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(image);
     }

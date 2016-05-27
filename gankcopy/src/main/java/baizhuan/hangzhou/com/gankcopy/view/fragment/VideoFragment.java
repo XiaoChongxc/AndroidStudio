@@ -108,6 +108,7 @@ public class VideoFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     @Override
     public void onRefresh() {
+        adapter2.clear();
         getData("休息视频", 20, 1);
     }
 

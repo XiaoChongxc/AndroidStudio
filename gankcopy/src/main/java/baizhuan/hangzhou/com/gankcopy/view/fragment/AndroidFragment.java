@@ -108,6 +108,7 @@ public class AndroidFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
     @Override
     public void onRefresh() {
+        adapter2.clear();
         getData("Android", 20, 1);
     }
 int page =1;

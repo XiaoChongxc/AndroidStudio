@@ -108,6 +108,7 @@ public class IOSFragment extends Fragment implements SwipeRefreshLayout.OnRefres
 
     @Override
     public void onRefresh() {
+        adapter2.clear();
         getData("iOS", 20, 1);
     }
 
