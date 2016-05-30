@@ -57,6 +57,9 @@
         <activity android:name=".view.activity.ShowBigActivity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".view.activity.GanHuoActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

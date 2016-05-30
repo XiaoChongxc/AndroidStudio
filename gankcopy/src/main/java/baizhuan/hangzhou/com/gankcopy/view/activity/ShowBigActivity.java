@@ -9,11 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import baizhuan.hangzhou.com.gankcopy.R;
 import baizhuan.hangzhou.com.gankcopy.adapter.ShowBigAdapter;
+import baizhuan.hangzhou.com.gankcopy.util.ImageUtil;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -51,8 +54,10 @@ public class ShowBigActivity extends Activity {
     List<String> data;      //数据源
     int curPosition;        //当前的选中项索引
 
+
     public static final String DATA_SOURCE_LIST = "DATA_SOURCE_LIST";
     public static final String DATA_SOURCE_OBJECT = "DATA_SOURCE_OBJECT";
+    public static final String DATA_SOURCE_CURPOSITION="DATA_SOURCE_CURPOSITION";
 
     ShowBigAdapter adapter;
 
@@ -67,10 +72,14 @@ public class ShowBigActivity extends Activity {
         if (list != null) data.addAll(list);
         String object = getIntent().getStringExtra(DATA_SOURCE_OBJECT);
         if (object != null) data.add(object);
+        curPosition=getIntent().getIntExtra(DATA_SOURCE_CURPOSITION,0);
 
-        tvTitle.setText("1/"+data.size());
+        tvTitle.setText(handFileName(data.get(curPosition)));
+        tvCurPosition.setText((curPosition+1) + "/" + data.size());
         adapter = new ShowBigAdapter(this, data);
         viewpager.setAdapter(adapter);
+
+        viewpager.setCurrentItem(curPosition);
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -79,7 +88,7 @@ public class ShowBigActivity extends Activity {
             @Override
             public void onPageSelected(int position) {
                 tvTitle.setText(handFileName(data.get(position)));
-                tvCurPosition.setText(position + "/" + data.size());
+                tvCurPosition.setText((position + 1) + "/" + data.size());
             }
 
             @Override
@@ -110,6 +119,7 @@ public class ShowBigActivity extends Activity {
 
     @OnClick(R.id.img_save)
     void onSave() {
+        ImageUtil.saveImage(this,getDataTime(),adapter.getCurBitmap(),viewpager);
 
     }
 
@@ -128,5 +138,8 @@ public class ShowBigActivity extends Activity {
 
     }
 
-
+    public String  getDataTime(){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
+         return  sdf.format(new Date());
+    }
 }

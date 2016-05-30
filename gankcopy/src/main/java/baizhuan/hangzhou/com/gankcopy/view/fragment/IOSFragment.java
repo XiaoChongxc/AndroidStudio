@@ -1,6 +1,8 @@
 package baizhuan.hangzhou.com.gankcopy.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -23,6 +25,7 @@ import baizhuan.hangzhou.com.gankcopy.adapter.TextForAdapter;
 import baizhuan.hangzhou.com.gankcopy.http.APIService;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 import baizhuan.hangzhou.com.gankcopy.util.RecycleSpace;
+import baizhuan.hangzhou.com.gankcopy.view.activity.GanHuoActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Subscriber;
@@ -70,7 +73,15 @@ public class IOSFragment extends Fragment implements SwipeRefreshLayout.OnRefres
 
         //这行代码 需要 运行在 最后面 ， 不然  ，  footview 加载不出来
         adapter2.addAll(list);
-
+        adapter2.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getContext(), GanHuoActivity.class);
+                intent.putExtra("desc", adapter2.getItem(position).getDesc());
+                intent.putExtra("url", adapter2.getItem(position).getUrl());
+                startActivity(intent);
+            }
+        });
         onRefresh();
     }
 
@@ -108,14 +119,25 @@ public class IOSFragment extends Fragment implements SwipeRefreshLayout.OnRefres
 
     @Override
     public void onRefresh() {
-        adapter2.clear();
-        getData("iOS", 20, 1);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adapter2.clear();getData("iOS", 20, 1);
+            }
+        }, 1000);
+        page=2;
     }
 
     int page = 1;
     @Override
     public void onLoadMore() {
-        getData("Android", 20, page);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getData("iOS", 20, page);
+            }
+        }, 1000);
         page++;
 
     }

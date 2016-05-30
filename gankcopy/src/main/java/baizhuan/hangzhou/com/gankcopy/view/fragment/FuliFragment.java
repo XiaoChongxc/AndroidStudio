@@ -2,6 +2,7 @@ package baizhuan.hangzhou.com.gankcopy.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -72,9 +73,16 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             @Override
             public void onItemClick(int position) {
                 //大图
-                Intent intent=new Intent(getActivity(), ShowBigActivity.class);
-                intent.putExtra(ShowBigActivity.DATA_SOURCE_OBJECT,adapter2.getItem(position).getUrl());
+                Intent intent = new Intent(getActivity(), ShowBigActivity.class);
+//                intent.putExtra(ShowBigActivity.DATA_SOURCE_OBJECT,adapter2.getItem(position).getUrl());
+                ArrayList<String> list2 = new ArrayList<String>();
+                for (GanHuo.Result item : adapter2.getAllData()) {
+                    list2.add(item.getUrl());
+                }
+                intent.putStringArrayListExtra(ShowBigActivity.DATA_SOURCE_LIST, list2);
+                intent.putExtra(ShowBigActivity.DATA_SOURCE_CURPOSITION, position);
                 startActivity(intent);
+
             }
         });
 
@@ -101,6 +109,7 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         //联网失败
                         Snackbar.make(recycleview, "NO WIFI，不能愉快的看妹纸啦..", Snackbar.LENGTH_LONG).show();
                     }
+
                     @Override
                     public void onNext(GanHuo ganHuo) {
                         adapter2.addAll(ganHuo.getResults());
@@ -117,15 +126,26 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @Override
     public void onRefresh() {
-
-        adapter2.clear();
-        getData("福利", 20, 1);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                adapter2.clear();
+                getData("福利", 20, 1);
+            }
+        },1000);
+        page=2;
     }
 
-    int page =1;
+    int page = 1;
+
     @Override
     public void onLoadMore() {
-        getData("Android", 20, page);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getData("福利", 20, page);
+            }
+        }, 1000);
         page++;
 
     }
