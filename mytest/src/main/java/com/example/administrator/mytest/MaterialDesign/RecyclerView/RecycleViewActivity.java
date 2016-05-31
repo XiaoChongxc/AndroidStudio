@@ -44,8 +44,8 @@ public class RecycleViewActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fragments = new ArrayList<>();
-        fragments.add(new MainFragment());
-        fragments.add(new MainFragment());
+        fragments.add(new RecycleViewAdapterAnimalFragment());
+        fragments.add(new RecycleViewAdapterAnimalFragment2());
         fragments.add(new MainFragment());
         fragments.add(new MainFragment());
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {

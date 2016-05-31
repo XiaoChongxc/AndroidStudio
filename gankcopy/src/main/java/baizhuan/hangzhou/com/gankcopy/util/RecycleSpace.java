@@ -29,4 +29,5 @@ public class RecycleSpace extends RecyclerView.ItemDecoration {
             outRect.top=space;
         }
     }
+
 }

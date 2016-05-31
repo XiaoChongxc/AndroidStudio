@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LayoutAnimationController;
 
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -63,6 +65,12 @@ public class AndroidFragment extends Fragment implements SwipeRefreshLayout.OnRe
         adapter2 = new TextForAdapter(getActivity());
 //        recycleview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        AlphaAnimation alphaAnimation =new AlphaAnimation(0,1);
+        alphaAnimation.setDuration(400);
+        LayoutAnimationController layoutAnimationController =new LayoutAnimationController(alphaAnimation,1);
+        recycleview.setLayoutAnimation(layoutAnimationController);
+
         recycleview.setAdapterWithProgress(adapter2);
         recycleview.setRefreshListener(this);
 

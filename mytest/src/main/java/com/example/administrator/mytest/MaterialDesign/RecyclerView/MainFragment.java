@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.administrator.mytest.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -41,6 +42,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        list=new ArrayList<>();
         recycleview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         for (int i=0; i<20;i++){
             list.add(""+i);
