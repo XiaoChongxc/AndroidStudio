@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -66,6 +67,47 @@ public class RecycleViewAdapterAnimalFragment extends Fragment {
         easyRecycle.setLayoutManager(new LinearLayoutManager(getActivity()));
         AlphaAnimatorAdapter alphaAnimatorAdapter = new AlphaAnimatorAdapter(adapter, easyRecycle);
         easyRecycle.setAdapter(alphaAnimatorAdapter);
+        easyRecycle.setItemAnimator(new DefaultItemAnimator() {
+            @Override
+            public boolean animateRemove(RecyclerView.ViewHolder holder) {
+                return false;
+            }
+
+            @Override
+            public boolean animateAdd(RecyclerView.ViewHolder holder) {
+                return false;
+            }
+
+            @Override
+            public boolean animateMove(RecyclerView.ViewHolder holder, int fromX, int fromY, int toX, int toY) {
+                return false;
+            }
+
+            @Override
+            public boolean animateChange(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromLeft, int fromTop, int toLeft, int toTop) {
+                return false;
+            }
+
+            @Override
+            public void runPendingAnimations() {
+
+            }
+
+            @Override
+            public void endAnimation(RecyclerView.ViewHolder item) {
+
+            }
+
+            @Override
+            public void endAnimations() {
+
+            }
+
+            @Override
+            public boolean isRunning() {
+                return false;
+            }
+        });
 
         String[] data = {"Alpha", "Slide Left", "Slide Bottom", "Scale", };
         sp.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data));
