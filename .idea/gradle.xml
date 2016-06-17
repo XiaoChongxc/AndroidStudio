@@ -10,17 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/AZExplosion" />
-            <option value="$PROJECT_DIR$/alert_lib" />
-            <option value="$PROJECT_DIR$/apiDemos" />
-            <option value="$PROJECT_DIR$/customshapeimageview" />
-            <option value="$PROJECT_DIR$/gankcopy" />
-            <option value="$PROJECT_DIR$/myapp" />
-            <option value="$PROJECT_DIR$/mytest" />
-            <option value="$PROJECT_DIR$/nightmode" />
-            <option value="$PROJECT_DIR$/recycle_adapter_animal" />
-            <option value="$PROJECT_DIR$/retrofitmvpdagger" />
-            <option value="$PROJECT_DIR$/transformPagelibrary" />
+            <option value="$PROJECT_DIR$/android5study" />
           </set>
         </option>
       </GradleProjectSettings>

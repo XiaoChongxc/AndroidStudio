@@ -24,10 +24,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import it.gmariotti.recyclerview.adapter.AlphaAnimatorAdapter;
-import it.gmariotti.recyclerview.adapter.ScaleInAnimatorAdapter;
-import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
-import it.gmariotti.recyclerview.adapter.SlideInLeftAnimatorAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.SlideInBottomAnimationAdapter;
 
 /**
  * User:    Xiaoc
@@ -65,7 +64,7 @@ public class RecycleViewAdapterAnimalFragment extends Fragment {
         adapter.addAll(list);
 
         easyRecycle.setLayoutManager(new LinearLayoutManager(getActivity()));
-        AlphaAnimatorAdapter alphaAnimatorAdapter = new AlphaAnimatorAdapter(adapter, easyRecycle);
+        AlphaInAnimationAdapter alphaAnimatorAdapter = new AlphaInAnimationAdapter(adapter);
         easyRecycle.setAdapter(alphaAnimatorAdapter);
         easyRecycle.setItemAnimator(new DefaultItemAnimator() {
             @Override
@@ -116,23 +115,20 @@ public class RecycleViewAdapterAnimalFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        AlphaAnimatorAdapter alphaAnimatorAdapter = new AlphaAnimatorAdapter(adapter, easyRecycle);
-                        easyRecycle.setAdapter(alphaAnimatorAdapter);
+                        AlphaInAnimationAdapter alphaInAnimationAdapter =new AlphaInAnimationAdapter(adapter);
+                        easyRecycle.setAdapter(alphaInAnimationAdapter);
                         break;
                     case 1:
-                        SlideInLeftAnimatorAdapter slideInLeftAnimatorAdapter = new SlideInLeftAnimatorAdapter(adapter, easyRecycle);
-                        easyRecycle.setAdapter(slideInLeftAnimatorAdapter);
-                        slideInLeftAnimatorAdapter.notifyDataSetChanged();
+                        SlideInBottomAnimationAdapter slideInBottomAnimationAdapter =new SlideInBottomAnimationAdapter(adapter);
+                        easyRecycle.setAdapter(slideInBottomAnimationAdapter);
                         break;
                     case 2:
-                        SlideInBottomAnimatorAdapter slideInOutBottomItemAnimator = new SlideInBottomAnimatorAdapter(adapter, easyRecycle);
+                        SlideInBottomAnimationAdapter slideInOutBottomItemAnimator = new SlideInBottomAnimationAdapter(adapter);
                         easyRecycle.setAdapter(slideInOutBottomItemAnimator);
-                        slideInOutBottomItemAnimator.notifyDataSetChanged();
                         break;
                     case 3:
-                        ScaleInAnimatorAdapter scaleInAnimatorAdapter = new ScaleInAnimatorAdapter(adapter, easyRecycle);
+                        ScaleInAnimationAdapter scaleInAnimatorAdapter = new ScaleInAnimationAdapter(adapter);
                         easyRecycle.setAdapter(scaleInAnimatorAdapter);
-                        scaleInAnimatorAdapter.notifyDataSetChanged();
                         break;
                 }
             }

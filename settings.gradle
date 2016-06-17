@@ -1,1 +1,2 @@
-include ':mytest', ':AZExplosion', ':customshapeimageview', ':myapp', ':alert_lib', ':nightmode', ':transformPagelibrary', ':retrofitmvpdagger', ':apiDemos', ':gankcopy', ':recycle_adapter_animal'
+//include ':mytest', ':AZExplosion', ':customshapeimageview', ':myapp', ':alert_lib', ':nightmode', ':transformPagelibrary', ':retrofitmvpdagger', ':apiDemos', ':gankcopy', ':refreshlayout',
+include      ':android5study'

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_home"
+            android:checked="true"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Alarm" />
+
+        <item
+            android:id="@+id/drawer_favourite"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Connected" />
+        <!-- 为 Item 添加子菜单，实现分组 -->
+        <item
+            android:id="@+id/section"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Group">
+
+            <menu>
+
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:id="@+id/show_snackbar"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="show a Snackbar" />
+
+                    <item
+                        android:id="@+id/show_with_action"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="show a Snackbar with action" />
+                </group>
+            </menu>
+        </item>
+
+        <item
+            android:id="@+id/show_with_callback"
+            android:icon="@mipmap/ic_launcher"
+            android:title="show a Snackbar with callback" />
+    </group>
+</menu>

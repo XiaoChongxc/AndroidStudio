@@ -12,9 +12,9 @@ import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 /**
  * Created by gaohailong on 2016/5/17.
  */
-public class MeiZhiAdapter extends RecyclerArrayAdapter<GanHuo.Result> {
+public class MeizhiAdapter extends RecyclerArrayAdapter<GanHuo.Result> {
 
-    public MeiZhiAdapter(Context context) {
+    public MeizhiAdapter(Context context) {
         super(context);
     }
 

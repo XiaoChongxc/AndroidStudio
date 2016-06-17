@@ -85,29 +85,27 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:support-v4:22.2.1'
-
-
+    compile 'com.android.support:recyclerview-v7:22.2.1'
     // 网络请求
-
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
-//    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
+    //    compile 'com.squareup.okhttp:okhttp-urlconnection:2.1.0'
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
-//    compile 'com.squareup.retrofit:retrofit-converters:2.0.0-beta2'
+    //    compile 'com.squareup.retrofit:retrofit-converters:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-//    compile 'com.squareup.retrofit:retrofit-adapters:2.0.0-beta2'
+    //    compile 'com.squareup.retrofit:retrofit-adapters:2.0.0-beta2'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
     //RecyclerView 的item动画
-//    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
+    //    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
     // layout 注解，简化findViewById
     compile 'com.jakewharton:butterknife:7.0.1'
     compile project(':alert_lib')
-    compile project(':transformPagelibrary')
-    compile project(':recycle_adapter_animal')
-
+//    compile project(':transformPagelibrary')
+    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32'
     //图片加载库
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //使用okhttp 加载图片
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'jp.wasabeef:recyclerview-animators:1.2.2'
 }

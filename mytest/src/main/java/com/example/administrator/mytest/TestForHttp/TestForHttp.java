@@ -28,6 +28,7 @@ import retrofit.RxJavaCallAdapterFactory;
 import retrofit.http.GET;
 import rx.Observable;
 import rx.Observer;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -81,14 +82,16 @@ public class TestForHttp extends Activity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseURL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(CustomConverterFactory.create())
                 .client(getHttpClient())
                 .build();
 
 
-        retrofit.create(TextApi.class).GetunJsonData()
+        Subscription sub=retrofit.create(TextApi.class).GetunJsonData()
                 .subscribeOn(Schedulers.io())        //指定一个 序列 操作
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
+                .unsubscribeOn(Schedulers.io())
+                .subscribe(new Observer<Sond>() {
                     @Override
                     public void onCompleted() {
                         Log.d(TAG, "onCompleted: ");
@@ -101,18 +104,20 @@ public class TestForHttp extends Activity {
                     }
 
                     @Override
-                    public void onNext(String sond) {
+                    public void onNext(Sond sond) {
                         System.out.print(sond);
                         tv.setText(sond.toString());
                         Log.d(TAG, "onNext: ");
                     }
                 });
+        //取消这个 订阅
+//        sub.unsubscribe();
 
     }
 
     private interface TextApi {
         @GET("  ")
-        Observable<String> GetunJsonData();
+        Observable<Sond> GetunJsonData();
     }
 
 

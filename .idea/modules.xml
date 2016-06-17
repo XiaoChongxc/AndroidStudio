@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AZExplosion/AZExplosion.iml" filepath="$PROJECT_DIR$/AZExplosion/AZExplosion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidStudio.iml" filepath="$PROJECT_DIR$/AndroidStudio.iml" />
-      <module fileurl="file://$PROJECT_DIR$/alert_lib/alert_lib.iml" filepath="$PROJECT_DIR$/alert_lib/alert_lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/apiDemos/apiDemos.iml" filepath="$PROJECT_DIR$/apiDemos/apiDemos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customshapeimageview/customshapeimageview.iml" filepath="$PROJECT_DIR$/customshapeimageview/customshapeimageview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gankcopy/gankcopy.iml" filepath="$PROJECT_DIR$/gankcopy/gankcopy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myapp/myapp.iml" filepath="$PROJECT_DIR$/myapp/myapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mytest/mytest.iml" filepath="$PROJECT_DIR$/mytest/mytest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nightmode/nightmode.iml" filepath="$PROJECT_DIR$/nightmode/nightmode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recycle_adapter_animal/recycle_adapter_animal.iml" filepath="$PROJECT_DIR$/recycle_adapter_animal/recycle_adapter_animal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/retrofitmvpdagger/retrofitmvpdagger.iml" filepath="$PROJECT_DIR$/retrofitmvpdagger/retrofitmvpdagger.iml" />
-      <module fileurl="file://$PROJECT_DIR$/transformPagelibrary/transformPagelibrary.iml" filepath="$PROJECT_DIR$/transformPagelibrary/transformPagelibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudio2.iml" filepath="$PROJECT_DIR$/AndroidStudio2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android5study/android5study.iml" filepath="$PROJECT_DIR$/android5study/android5study.iml" />
     </modules>
   </component>
 </project>

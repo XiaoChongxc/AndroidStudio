@@ -13,10 +13,10 @@ import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 /**
  * Created by gaohailong on 2016/5/17.
  */
-public class MeiZhiViewHolder extends BaseViewHolder<GanHuo.Result> {
+public class MeizhiViewholder extends BaseViewHolder<GanHuo.Result> {
     private ImageView image;
 
-    public MeiZhiViewHolder(ViewGroup parent) {
+    public MeizhiViewholder(ViewGroup parent) {
         super(parent, R.layout.meizhi_item);
         image = $(R.id.image);
     }
