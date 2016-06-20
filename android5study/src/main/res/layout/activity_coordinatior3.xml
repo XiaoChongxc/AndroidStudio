@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
 
 
         </android.support.v7.widget.Toolbar>

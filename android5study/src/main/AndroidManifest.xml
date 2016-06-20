@@ -4,17 +4,29 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TextInputLayout.TextInputLayoutActivity">
+        <activity
+            android:name=".NavigationView.NavigationViewActivity"
+            android:theme="@style/translucetStatusThreme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".CoordinatiorLayout.CoordinatiorLayoutActivity" />
+        <activity android:name=".TabLayout.TabLayoutActivity" />
+        <activity android:name=".TextInputLayout.TextInputLayoutActivity" />
+        <activity android:name=".AppBarLayout.AppBarLayoutActivity" />
+        <activity
+            android:name=".CollapsingToolbarLayout.CollapsingToolbarLayoutActivity"
+            android:theme="@style/translucetStatusThreme" />
+        <activity android:name=".TextSelection.TextSelectionActivity" />
+
     </application>
 
 </manifest>

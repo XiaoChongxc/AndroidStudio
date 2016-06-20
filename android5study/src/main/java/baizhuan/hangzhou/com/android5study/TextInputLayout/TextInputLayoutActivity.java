@@ -1,12 +1,14 @@
 package baizhuan.hangzhou.com.android5study.TextInputLayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
+import com.rengwuxian.materialedittext.MaterialEditText;
+
+import baizhuan.hangzhou.com.android5study.BaseActivity;
 import baizhuan.hangzhou.com.android5study.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,14 +19,19 @@ import butterknife.ButterKnife;
  * Package: baizhuan.hangzhou.com.android4study.TextInputLayoutActivity
  * Date:    2016-06-17
  * Time:    10:40
- * 类描述：
+ * 类描述：  TextInputLayout   存在一个问题 ，  setError 之后  不能取消
+ * 推荐使用  Material  design  EditText   一个 开源库
  */
-public class TextInputLayoutActivity extends Activity {
+public class TextInputLayoutActivity extends BaseActivity {
 
     @Bind(R.id.et_test)
     EditText etTest;
     @Bind(R.id.til_test)
     TextInputLayout tilTest;
+    @Bind(R.id.et1)
+    EditText et1;
+    @Bind(R.id.tv_md)
+    MaterialEditText tvMd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +57,8 @@ public class TextInputLayoutActivity extends Activity {
                     tilTest.setErrorEnabled(true);
                     tilTest.setError("发生了错误");
                     etTest.setError("Edit的错误提示");
-                }else{
-
+                } else {
+                    tilTest.setError(null);
                 }
             }
         });

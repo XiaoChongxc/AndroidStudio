@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import baizhuan.hangzhou.com.android5study.BaseActivity;
 import baizhuan.hangzhou.com.android5study.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
  * Time:    15:03
  * 类描述：
  */
-public class TabLayoutActivity extends AppCompatActivity {
+public class TabLayoutActivity extends BaseActivity {
 
     @Bind(R.id.viewpager)
     ViewPager viewpager;

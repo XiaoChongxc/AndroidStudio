@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- enterAlways：一旦向上滚动这个 View 就可见，这个 flag 让任意向下的滚动都会导致该 View 变为可见，启用快速“返回模式”-->
+    <item
+        android:id="@+id/style1"
+        android:title="layout_scrollFlags:enterAlways" />
+    <!--enterAlwaysCollapsed：顾名思义，这个 flag 定义的是何时进入（已经消失之后何时再次显示）。假设你定义了一个最小高度（minHeight）同时 enterAlways 也定义了，那么 View 将在到达这个最小高度的时候开始显示，并且从这个时候开始慢慢展开，当滚动到顶部的时候展开完-->
+    <item
+        android:id="@+id/style2"
+        android:title="layout_scrollFlags:enterAlways|enterAlwaysCollapsed" />
+    <!--exitUntilCollapsed：同样顾名思义，这个 flag 定义何时退出，当你定义了一个 minHeight，这个 View 将在滚动到达这个最小高度的时候消失。-->
+    <item
+        android:id="@+id/style3"
+        android:title="layout_scrollFlags:enterAlways|exitUntilCollapsed" />
+</menu>

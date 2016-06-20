@@ -2,4 +2,14 @@
     <string name="app_name">Android5Study</string>
 
     <string name="author">开心就好</string>
+
+    <string-array name="demo_item">
+        <item>Coordinatiorlayout </item>
+        <item>AppBarLayout </item>
+        <item>CollapsingToolbarLayout </item>
+        <item>Tablayout</item>
+        <item>TextInputLayout</item>
+        <item>TextSelection</item>
+
+    </string-array>
 </resources>
