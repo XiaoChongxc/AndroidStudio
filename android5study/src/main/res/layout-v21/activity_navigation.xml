@@ -4,6 +4,7 @@
     android:id="@+id/drawlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
     <!-- fitsSystemWindows  true 的时候 ， 内容 能够延伸到 状态栏 -->
 
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/menu" />
 

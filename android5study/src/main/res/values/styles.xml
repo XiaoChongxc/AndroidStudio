@@ -7,10 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="translucetStatusThreme" parent="AppTheme">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:colorControlHighlight">@color/colorPrimary</item> 
-        <item name="android:windowSharedElementsUseOverlay">false</item>
-    </style>
+
+    <style name="translucetStatusThreme" parent="AppTheme"></style>
 
 </resources>

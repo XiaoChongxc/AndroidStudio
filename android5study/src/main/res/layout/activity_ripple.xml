@@ -65,11 +65,11 @@
 
 
         <TextView
-            android:id="@+id/tv_6"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/bg_ripple_6"
             android:gravity="center"
+            android:id="@+id/tv_6"
             android:text="Ripple With selector Mask" />
 
     </LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--如果在一个ripple标签中，添加一个 item，其id为@android:id/mask，drawable 属性为引用的形状(shape) ，
+则水波效果会限定在 shape 对应的区域内部。-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/colorPrimary">
+    <item>
+        <selector>
+            <item
+                android:drawable="@mipmap/ic_logo"
+                android:state_pressed="true"></item>
+            <item
+                android:drawable="@mipmap/ic_launcher"
+                android:state_pressed="false"></item>
+        </selector>
+
+    </item>
+</ripple>

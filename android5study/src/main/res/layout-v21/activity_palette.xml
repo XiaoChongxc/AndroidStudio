@@ -8,8 +8,10 @@
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="240dp"
+        android:fitsSystemWindows="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg" />
+        android:src="@drawable/bg"
+        android:stateListAnimator="@anim/touch_raise" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,6 +23,7 @@
             android:id="@+id/btn_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:stateListAnimator="@anim/touch_raise"
             android:text="同步" />
 
         <Button
@@ -28,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:stateListAnimator="@anim/touch_raise"
             android:text="异步" />
 
     </RelativeLayout>

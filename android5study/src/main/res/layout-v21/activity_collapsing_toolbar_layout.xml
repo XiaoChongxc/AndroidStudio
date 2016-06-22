@@ -7,12 +7,14 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/ctl_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="46dp"
@@ -22,6 +24,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/bg"
                 app:layout_collapseMode="parallax" />

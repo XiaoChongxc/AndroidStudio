@@ -62,11 +62,7 @@ public class ToolbarActivity extends BaseActivity {
             }
         });
 
-
-//        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawlayout, toolbar, R.string.open, R.string.close);
-//        drawerToggle.syncState();
-//        drawlayout.addDrawerListener(drawerToggle);
-
+        //设置   关联，  使  drawlayout 变化的时候， 有好看的 切换动画效果
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawlayout, toolbar, R.string.open, R.string.close);
         actionBarDrawerToggle.syncState();
         drawlayout.addDrawerListener(actionBarDrawerToggle);
