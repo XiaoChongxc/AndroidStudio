@@ -10,6 +10,15 @@
         <item>Tablayout</item>
         <item>TextInputLayout</item>
         <item>TextSelection</item>
+        <item>CardView</item>
+        <item>Palette</item>
+        <item>Ripple</item>
+        <item>Toolbar</item>
 
     </string-array>
+
+
+    <string name="open">菜单打开</string>
+    <string name="close">菜单关闭</string>
+
 </resources>

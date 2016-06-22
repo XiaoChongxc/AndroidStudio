@@ -14,7 +14,7 @@ import android.support.v7.app.AppCompatActivity;
  * 类描述：
  */
 public class BaseActivity extends AppCompatActivity {
-    Context ctx;
+    public Context ctx;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

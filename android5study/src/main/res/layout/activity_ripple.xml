@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_ripple_1"
+            android:gravity="center"
+            android:text="Ripple With No Mask" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_ripple_2"
+            android:gravity="center"
+            android:text="Ripple With white Mask" />
+
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_ripple_3"
+            android:gravity="center"
+            android:text="Ripple With black Mask" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_ripple_4"
+            android:gravity="center"
+            android:onClick="click"
+            android:text="Ripple With Pic Mask" />
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_ripple_5"
+            android:gravity="center"
+            android:text="Ripple With shape Mask" />
+
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_ripple_6"
+            android:gravity="center"
+            android:text="Ripple With selector Mask" />
+
+    </LinearLayout>
+</LinearLayout>

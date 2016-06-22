@@ -3,16 +3,16 @@
 
 
     <item
-        android:id="copy"
+        android:id="@+id/copy"
         android:title=" 复制" />
     <item
-        android:id="copy2"
+        android:id="@+id/copy2"
         android:title=" 复制2" />
     <item
-        android:id="copy3"
+        android:id="@+id/copy3"
         android:title=" 复制3" />
     <item
-        android:id="copy4"
+        android:id="@+id/copy4"
         android:title=" 复制4" />
 
 </menu>

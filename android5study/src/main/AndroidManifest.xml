@@ -26,6 +26,13 @@
             android:name=".CollapsingToolbarLayout.CollapsingToolbarLayoutActivity"
             android:theme="@style/translucetStatusThreme" />
         <activity android:name=".TextSelection.TextSelectionActivity" />
+        <activity android:name=".CardView.CardViewActivity" />
+        <activity
+            android:name=".Palette.PaletteActivity"
+            android:theme="@style/translucetStatusThreme" />
+        <activity android:name=".Ripple.RippleActivity" />
+
+        <activity android:name=".Toolbar.ToolbarActivity" />
 
     </application>
 

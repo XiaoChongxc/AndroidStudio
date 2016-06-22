@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--如果在一个 ripple 标签中，添加一个 item，其 id 为@android:id/mask，drawable 属性为引用的颜色(color) ，
+则水波效果会限定在 drawable 对应的 RippleDrawable 本身矩形区域内部。-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/colorPrimary">
+    <item
+        android:id="@android:id/mask"
+        android:drawable="@android:color/black" />
+</ripple>
