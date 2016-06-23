@@ -62,18 +62,18 @@ public class NavigationViewAdapter extends RecyclerView.Adapter {
     interface OnItemClickListener {
         void onitemClick(int position);
     }
-
-}
-
-class ViewHolder extends RecyclerView.ViewHolder {
-    @Bind(R.id.tv_text)
-    TextView tv;
-    @Bind(R.id.item_parent)
-    LinearLayout itemParent;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        @Bind(R.id.tv_text)
+        TextView tv;
+        @Bind(R.id.item_parent)
+        LinearLayout itemParent;
 
 
-    public ViewHolder(View itemView) {
-        super(itemView);
-        ButterKnife.bind(this, itemView);
+        public ViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
     }
 }
+
+

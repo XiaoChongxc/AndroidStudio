@@ -14,6 +14,9 @@
         <item>Palette</item>
         <item>Ripple</item>
         <item>Toolbar</item>
+        <item>RecyclerView</item>
+        <item>TextureViewActivity</item>
+
 
     </string-array>
 

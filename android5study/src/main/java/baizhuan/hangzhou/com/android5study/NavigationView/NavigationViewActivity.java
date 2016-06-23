@@ -20,10 +20,12 @@ import baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.CollapsingToo
 import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.CoordinatiorLayoutActivity;
 import baizhuan.hangzhou.com.android5study.Palette.PaletteActivity;
 import baizhuan.hangzhou.com.android5study.R;
+import baizhuan.hangzhou.com.android5study.RecycleView.RecycleViewActivity;
 import baizhuan.hangzhou.com.android5study.Ripple.RippleActivity;
 import baizhuan.hangzhou.com.android5study.TabLayout.TabLayoutActivity;
 import baizhuan.hangzhou.com.android5study.TextInputLayout.TextInputLayoutActivity;
 import baizhuan.hangzhou.com.android5study.TextSelection.TextSelectionActivity;
+import baizhuan.hangzhou.com.android5study.TextureView.TextureViewActivity;
 import baizhuan.hangzhou.com.android5study.Toolbar.ToolbarActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -98,7 +100,8 @@ public class NavigationViewActivity extends BaseActivity {
 
         final String[] datas = getResources().getStringArray(R.array.demo_item);
         final Class[] clazz = {CoordinatiorLayoutActivity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, TabLayoutActivity.class,
-                TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class};
+                TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class, RecycleViewActivity.class,
+                TextureViewActivity.class};
         recycle.setLayoutManager(new LinearLayoutManager(this));
         NavigationViewAdapter adapter = new NavigationViewAdapter(this, datas);
         recycle.setAdapter(adapter);

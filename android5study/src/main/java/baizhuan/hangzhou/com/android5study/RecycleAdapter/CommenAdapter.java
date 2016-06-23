@@ -26,9 +26,17 @@ public class CommenAdapter extends RecyclerView.Adapter {
     ArrayList list;
     Context ctx;
 
-    public CommenAdapter(Context ctx,ArrayList list) {
+    public CommenAdapter(Context ctx, ArrayList list) {
         this.list = list;
         this.ctx = ctx;
+    }
+
+    public CommenAdapter(Context ctx) {
+        this.ctx = ctx;
+        list = new ArrayList();
+        for (int i = 0; i < 20; i++) {
+            list.add("" + i + "-" + i + "-" + "i");
+        }
     }
 
     @Override
@@ -85,4 +93,7 @@ public class CommenAdapter extends RecyclerView.Adapter {
         }
     }
 
+    public ArrayList getData() {
+        return list;
+    }
 }

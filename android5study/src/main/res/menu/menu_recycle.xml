@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/recycle_linear"
+        android:title="LinearLayoutManager" />
+    <item
+        android:id="@+id/recycle_staggered_grid"
+        android:title="StaggeredGridLayoutManager" />
+    <item
+        android:id="@+id/recycle_grid"
+        android:title="GridLayoutManager" />
+    <item
+        android:id="@+id/recycle_line"
+        android:title="have  line" />
+
+
+    <item
+        android:id="@+id/recycle_add_item"
+        android:title="添加item" />
+    <item
+        android:id="@+id/recycle_remove_item"
+        android:title="删除item" />
+
+
+    <item
+        android:id="@+id/recycle_animal_1"
+        android:title="item动画ScaleIn" />
+    <item
+        android:id="@+id/recycle_animal_2"
+        android:title="item动画FadeInAnimator" />
+    <item
+        android:id="@+id/recycle_adapter_animal"
+        android:title="是否有adapter动画" />
+
+
+</menu>

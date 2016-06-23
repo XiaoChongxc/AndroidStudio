@@ -15,5 +15,9 @@
         <item name="android:colorControlHighlight">@color/colorPrimary</item> 
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
+    <!--@android:style/Theme.Material-->
+    <!--@android:style/Theme.Material.Light-->
+    <!--@android:style/Theme.Material.Light.DarkActionBar-->
+    <style name="MdThreme" parent="@android:style/Theme.Material" />
 
 </resources>

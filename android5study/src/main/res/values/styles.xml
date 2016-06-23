@@ -9,5 +9,11 @@
     </style>
 
     <style name="translucetStatusThreme" parent="AppTheme"></style>
+    <!--@android:style/Theme.Material-->
+    <!--@android:style/Theme.Material.Light-->
+    <!--@android:style/Theme.Material.Light.DarkActionBar-->
+    <style name="MdThreme" parent="AppTheme" />
+
+
 
 </resources>
