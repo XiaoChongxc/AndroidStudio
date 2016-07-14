@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">androidlibstudy</string>
+
+
+    <string-array name="demo_item">
+        <item>Rxjava  操作符 </item>
+
+    </string-array>
+
+</resources>

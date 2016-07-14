@@ -36,7 +36,10 @@
         <activity android:name=".RecycleView.RecycleViewActivity" />
 
         <activity android:name=".TextureView.TextureViewActivity" />
-
+        <activity android:name=".ExpandListView.ExpandListActivity" />
+        <activity android:name=".ExpandListView.ExpressDetailActivity" />
+        <activity android:name=".threeListview.ThreeListActivity" />
+        
     </application>
 
 </manifest>

@@ -16,7 +16,9 @@
         <item>Toolbar</item>
         <item>RecyclerView</item>
         <item>TextureViewActivity</item>
-
+        <item>ExpandListActivity</item>
+        <item>ExpressDetailActivity</item>
+        <item>ThreeListActivity</item>
 
     </string-array>
 

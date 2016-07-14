@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#F4F4F4"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/child_goods_img"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="12.5dp"
+            android:src="@mipmap/ic_logo" />
+
+        <TextView
+            android:id="@+id/child_goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/child_goods_img"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/child_goods_img"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Anna sui/安娜苏许愿精灵女士淡香水持久"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/child_goods_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/child_goods_name"
+            android:layout_alignRight="@id/child_goods_name"
+            android:layout_below="@id/child_goods_name"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="颜色：K金黑鹰+琳黑+NS黑+P鹰黑 尺码：L"
+            android:textColor="#999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/child_goods_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/child_goods_img"
+            android:text="¥299222.00"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/child_goods_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/child_goods_price"
+            android:layout_marginTop="10dp"
+            android:text="x1"
+            android:textColor="#666"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+</LinearLayout>
