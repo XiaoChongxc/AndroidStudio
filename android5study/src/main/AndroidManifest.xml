@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".CoordinatiorLayout.CoordinatiorLayoutActivity" />
+        <activity android:name=".CoordinatiorLayout.TaoBaoBuyActivity" />
         <activity android:name=".TabLayout.TabLayoutActivity" />
         <activity android:name=".TextInputLayout.TextInputLayoutActivity" />
         <activity android:name=".AppBarLayout.AppBarLayoutActivity" />

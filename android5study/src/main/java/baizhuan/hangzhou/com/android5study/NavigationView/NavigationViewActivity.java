@@ -18,6 +18,7 @@ import baizhuan.hangzhou.com.android5study.BaseActivity;
 import baizhuan.hangzhou.com.android5study.CardView.CardViewActivity;
 import baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.CollapsingToolbarLayoutActivity;
 import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.CoordinatiorLayoutActivity;
+import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.TaoBaoBuyActivity;
 import baizhuan.hangzhou.com.android5study.ExpandListView.ExpandListActivity;
 import baizhuan.hangzhou.com.android5study.ExpandListView.ExpressDetailActivity;
 import baizhuan.hangzhou.com.android5study.Palette.PaletteActivity;
@@ -102,7 +103,7 @@ public class NavigationViewActivity extends BaseActivity {
         });
 
         final String[] datas = getResources().getStringArray(R.array.demo_item);
-        final Class[] clazz = {CoordinatiorLayoutActivity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, TabLayoutActivity.class,
+        final Class[] clazz = {CoordinatiorLayoutActivity.class, TaoBaoBuyActivity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, TabLayoutActivity.class,
                 TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class, RecycleViewActivity.class,
                 TextureViewActivity.class, ExpandListActivity.class, ExpressDetailActivity.class, ThreeListActivity.class};
         recycle.setLayoutManager(new LinearLayoutManager(this));
