@@ -22,6 +22,12 @@ import rx.schedulers.Schedulers;
  * Date:    2016-07-13
  * Time:    09:54
  * 类描述： Rxjava  操作符练习
+ *          filter()输出和输入相同的元素，并且会过滤掉那些不满足检查条件的。
+ *          take()输出最多指定数量的结果。
+ *          doOnNext()允许我们在每次输出一个元素之前做一些额外的事情
+ *          timer() 延迟 时间后 执行
+ *          interval()间隔固定时间 执行
+ *
  */
 public class RxjavaTest {
     static Observable mObservable;
