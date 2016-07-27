@@ -8,6 +8,8 @@
         <item>TaoBaoBuyActivity </item>
         <item>AppBarLayout </item>
         <item>CollapsingToolbarLayout </item>
+        <item>CollapsingToolbarBehaviorActivity</item>
+        <item>CollapsingToolbarBehaviorActivity2</item>
         <item>Tablayout</item>
         <item>TextInputLayout</item>
         <item>TextSelection</item>
@@ -21,10 +23,13 @@
         <item>ExpressDetailActivity</item>
         <item>ThreeListActivity</item>
 
+
+
     </string-array>
 
 
     <string name="open">菜单打开</string>
     <string name="close">菜单关闭</string>
+    <string name="custom_collapsingtoolbar_behavior">baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.ToolbarBehavior2</string>
 
 </resources>

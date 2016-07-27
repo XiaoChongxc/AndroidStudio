@@ -25,7 +25,7 @@ import rx.schedulers.Schedulers;
  * 类描述： 沃商店  主页 滑动效果的  测试类
  * 主要是 coordinatorLayout   和 behavior  的一个 联动 demo  完成 了 简单的 功能
  */
-public class TaoBaoBuyActivity extends Activity {
+public class BehaviorTest1Activity extends Activity {
 
     @Bind(R.id.header)
     ImageView header;

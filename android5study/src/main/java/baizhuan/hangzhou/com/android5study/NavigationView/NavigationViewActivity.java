@@ -16,9 +16,11 @@ import android.widget.Toast;
 import baizhuan.hangzhou.com.android5study.AppBarLayout.AppBarLayoutActivity;
 import baizhuan.hangzhou.com.android5study.BaseActivity;
 import baizhuan.hangzhou.com.android5study.CardView.CardViewActivity;
+import baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.CollapsingToolbarBehaviorActivity;
+import baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.CollapsingToolbarBehaviorActivity2;
 import baizhuan.hangzhou.com.android5study.CollapsingToolbarLayout.CollapsingToolbarLayoutActivity;
+import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.BehaviorTest1Activity;
 import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.CoordinatiorLayoutActivity;
-import baizhuan.hangzhou.com.android5study.CoordinatiorLayout.TaoBaoBuyActivity;
 import baizhuan.hangzhou.com.android5study.ExpandListView.ExpandListActivity;
 import baizhuan.hangzhou.com.android5study.ExpandListView.ExpressDetailActivity;
 import baizhuan.hangzhou.com.android5study.Palette.PaletteActivity;
@@ -103,8 +105,8 @@ public class NavigationViewActivity extends BaseActivity {
         });
 
         final String[] datas = getResources().getStringArray(R.array.demo_item);
-        final Class[] clazz = {CoordinatiorLayoutActivity.class, TaoBaoBuyActivity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, TabLayoutActivity.class,
-                TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class, RecycleViewActivity.class,
+        final Class[] clazz = {CoordinatiorLayoutActivity.class, BehaviorTest1Activity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, CollapsingToolbarBehaviorActivity.class,CollapsingToolbarBehaviorActivity2.class,
+                TabLayoutActivity.class, TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class, RecycleViewActivity.class,
                 TextureViewActivity.class, ExpandListActivity.class, ExpressDetailActivity.class, ThreeListActivity.class};
         recycle.setLayoutManager(new LinearLayoutManager(this));
         NavigationViewAdapter adapter = new NavigationViewAdapter(this, datas);

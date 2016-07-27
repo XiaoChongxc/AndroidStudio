@@ -21,8 +21,8 @@ import baizhuan.hangzhou.com.android5study.R;
  * Time:    17:24
  * 类描述： 自定义的 behavior  用于 和  一些控件 联动
  */
-public class ToolbarAlphaBehavior extends CoordinatorLayout.Behavior<Toolbar> {
-    private static final String TAG = "ToolbarAlphaBehavior";
+public class ToolbarBehavior1 extends CoordinatorLayout.Behavior<Toolbar> {
+    private static final String TAG = "ToolbarBehavior1";
 
     int tvStartX = 0;
     int offset = 0;
@@ -32,7 +32,7 @@ public class ToolbarAlphaBehavior extends CoordinatorLayout.Behavior<Toolbar> {
     int imgheight = 0;
 
 
-    public ToolbarAlphaBehavior(Context context, AttributeSet attrs) {
+    public ToolbarBehavior1(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
