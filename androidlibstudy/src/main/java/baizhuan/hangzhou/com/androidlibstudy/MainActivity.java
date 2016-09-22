@@ -9,7 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import baizhuan.hangzhou.com.androidlibstudy.Image.CircleImageActivity;
+import baizhuan.hangzhou.com.androidlibstudy.PorterDuffXfermode.PorterDuffXfermodeTextActivity;
 import baizhuan.hangzhou.com.androidlibstudy.Rxjava.RxjavaActivity;
+import baizhuan.hangzhou.com.androidlibstudy.Shader.ShaderActivity;
+import baizhuan.hangzhou.com.androidlibstudy.adapter.BaseAdapter;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -27,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
         list = new ArrayList();
         list.add("Rxjava操作符使用");
+        list.add("CircleImageView");
+        list.add("16种相交模式测试");
+        list.add("Shader类测试");
+
         BaseAdapter adapter = new BaseAdapter(list, this);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(adapter);
@@ -39,11 +47,19 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         intent = new Intent(MainActivity.this, RxjavaActivity.class);
                         break;
+                    case 1:
+                        intent = new Intent(MainActivity.this, CircleImageActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(MainActivity.this, PorterDuffXfermodeTextActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(MainActivity.this, ShaderActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }
         });
     }
-
 
 }

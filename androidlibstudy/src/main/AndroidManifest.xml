@@ -20,7 +20,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Rxjava.RxjavaActivity"></activity>
+        <activity android:name=".Image.CircleImageActivity"></activity>
+        <activity android:name=".PorterDuffXfermode.PorterDuffXfermodeTextActivity"></activity>
 
+        <activity android:name=".Shader.BitmapShaderActivity"></activity>
+        <activity android:name=".Shader.ShaderActivity"></activity>
+
+
+        <activity android:name=".Shader.LinearGradientActivity"></activity>
 
     </application>
 

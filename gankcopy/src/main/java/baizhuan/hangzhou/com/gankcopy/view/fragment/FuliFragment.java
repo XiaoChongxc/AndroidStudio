@@ -80,6 +80,8 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                     list2.add(item.getUrl());
                 }
                 intent.putStringArrayListExtra(ShowBigActivity.DATA_SOURCE_LIST, list2);
+
+
                 intent.putExtra(ShowBigActivity.DATA_SOURCE_CURPOSITION, position);
                 startActivity(intent);
 
@@ -87,7 +89,7 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         });
 
 
-        //这行代码 需要 运行在 最后面 ， 不然  ，  footview 加载不出来
+        //这行代码 需要 运行在 最后面 ， 不然   ，  footview 加载不出来
 //        adapter2.addAll(list);
         onRefresh();
     }

@@ -17,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
@@ -39,6 +40,7 @@ public class TablayoutFragment extends BasePagerFragment {
     ProgressBar progress;
     @Bind(R.id.btn_refresh)
     Button btnRefresh;
+    Subscription subscription;
 
     @Nullable
     @Override
@@ -53,7 +55,7 @@ public class TablayoutFragment extends BasePagerFragment {
     }
 
     @OnClick(R.id.btn_refresh)
-    void refresh(){
+    void refresh() {
         prepareFetchData(true);
     }
 
@@ -64,7 +66,7 @@ public class TablayoutFragment extends BasePagerFragment {
     public void fetchData() {
         Log.d(TAG, "fetchData: ");
 
-        Observable.timer(3, TimeUnit.SECONDS)
+        subscription = Observable.timer(3, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Action0() {
                     @Override
@@ -79,6 +81,7 @@ public class TablayoutFragment extends BasePagerFragment {
                         Log.d(TAG, "call: 在获取数据之前做点别的事！");
                     }
                 })
+                .unsubscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Long>() {
                     @Override
@@ -86,6 +89,7 @@ public class TablayoutFragment extends BasePagerFragment {
                         Log.d(TAG, "call: 联网已经获取到数据了！");
                         progress.setVisibility(View.GONE);
                         Log.d(TAG, "call: 关闭进度条！");
+                        isDataInitiated = true;
                     }
                 });
     }
@@ -93,6 +97,8 @@ public class TablayoutFragment extends BasePagerFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (subscription != null)
+            subscription.unsubscribe();
         ButterKnife.unbind(this);
     }
 }

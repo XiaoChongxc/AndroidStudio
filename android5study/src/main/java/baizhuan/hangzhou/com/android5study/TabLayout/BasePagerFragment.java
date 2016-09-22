@@ -9,7 +9,8 @@ import android.support.v4.app.Fragment;
  * Package: baizhuan.hangzhou.com.android5study.TabLayout
  * Date:    2016-07-27
  * Time:    14:51
- * 类描述：
+ * 类描述：  为了解决 viewpager  预加载
+ * 会在 页面完全展示之后 才加载数据
  */
 public abstract class BasePagerFragment extends Fragment {
     /***

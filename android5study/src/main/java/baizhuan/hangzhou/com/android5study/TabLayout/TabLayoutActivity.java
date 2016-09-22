@@ -11,9 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import baizhuan.hangzhou.com.android5study.BaseActivity;
 import baizhuan.hangzhou.com.android5study.R;
 import butterknife.Bind;
@@ -34,8 +31,6 @@ public class TabLayoutActivity extends BaseActivity {
     @Bind(R.id.tablayout)
     TabLayout tablayout;
 
-    List<Fragment> fragments;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,18 +39,13 @@ public class TabLayoutActivity extends BaseActivity {
 
 
         String[] data = {"fragmeng1", "fragmeng2", "fragmeng3", "fragmeng4"};
-        fragments = new ArrayList<>();
-        fragments.add(new TablayoutFragment());
-        fragments.add(new TablayoutFragment());
-        fragments.add(new TablayoutFragment());
-        fragments.add(new TablayoutFragment());
 
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(), data);
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
         //        tablayout.setTabMode(TabLayout.MODE_FIXED);MODE_SCROLLABLE  控制  是否能够滚动
 
-        String [] subtitles={"1","5","7","3"};
+        String[] subtitles = {"1", "5", "7", "3"};
 
 //        addTabSubTitle(subtitles);
 
@@ -81,14 +71,15 @@ public class TabLayoutActivity extends BaseActivity {
         public FragmentAdapter(FragmentManager fm, String[] titles) {
             super(fm);
             this.titles = titles;
-            Log.d("tag", "FragmentAdapter: "+titles.length);
+            Log.d("tag", "FragmentAdapter: " + titles.length);
         }
 
         @Override
         public Fragment getItem(int position) {
-            TablayoutFragment fragment= (TablayoutFragment) fragments.get(position);
-            Bundle bundle =new Bundle();
-            bundle.putString("content",titles[position]+"  这是一个fragment");
+            Log.d("TablayoutFragment", "getItem: " + position);
+            TablayoutFragment fragment = new TablayoutFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("content", titles[position] + "  这是一个fragment");
             fragment.setArguments(bundle);
             return fragment;
         }
