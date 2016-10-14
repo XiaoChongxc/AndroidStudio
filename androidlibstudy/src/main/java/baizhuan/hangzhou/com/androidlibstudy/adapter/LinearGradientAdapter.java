@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import baizhuan.hangzhou.com.androidlibstudy.R;
+import baizhuan.hangzhou.com.androidlibstudy.util.DensityUtils;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -73,10 +74,11 @@ public class LinearGradientAdapter extends RecyclerView.Adapter<LinearGradientAd
                 break;
         }
 
+
         if ((position + 1) % 2 == 0) {
-            holder.img.setImageBitmap(getBitmap2( mode,holder.img.getWidth(),holder.img.getHeight()));
+            holder.img.setImageBitmap(getBitmap2( mode, DensityUtils.dp2px(ctx,200),DensityUtils.dp2px(ctx,50)));
         } else {
-            holder.img.setImageBitmap(getBitmap1( mode,holder.img.getWidth(),holder.img.getHeight()));
+            holder.img.setImageBitmap(getBitmap1( mode, DensityUtils.dp2px(ctx,200),DensityUtils.dp2px(ctx,50)));
         }
 
         holder.text.setText(title);
@@ -110,8 +112,8 @@ public class LinearGradientAdapter extends RecyclerView.Adapter<LinearGradientAd
         Bitmap ret_bit = Bitmap.createBitmap(width,height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(ret_bit);
         Paint paint = new Paint();
-        int []colors={Color.YELLOW,Color.BLUE};
-        LinearGradient linearGradient =new LinearGradient(0,0,width/2,height,colors,new float[]{0.5f,0.9f}, mode);
+        int []colors={Color.YELLOW,Color.BLUE,Color.GRAY};
+        LinearGradient linearGradient =new LinearGradient(0,0,0,height/2,colors,new float[]{0.3f,0.4f,0.7f}, mode);
         paint.setShader(linearGradient);
         canvas.drawRect(0, 0,width, height, paint);
         return ret_bit;
@@ -127,8 +129,8 @@ public class LinearGradientAdapter extends RecyclerView.Adapter<LinearGradientAd
         Bitmap ret_bit = Bitmap.createBitmap(width,height, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(ret_bit);
         Paint paint = new Paint();
-        int []colors={Color.YELLOW,Color.BLUE};
-        LinearGradient linearGradient =new LinearGradient(0,0,width/2,height,colors,null, mode);
+        int []colors={Color.YELLOW,Color.BLUE,Color.GRAY};
+        LinearGradient linearGradient =new LinearGradient(0,0,0,height/2,colors,null, mode);
         paint.setShader(linearGradient);
         canvas.drawRect(0, 0, width,height, paint);
         return ret_bit;

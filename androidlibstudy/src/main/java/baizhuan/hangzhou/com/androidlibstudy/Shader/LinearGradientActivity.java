@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
  * Package: baizhuan.hangzhou.com.androidlibstudy.Shader
  * Date:    2016/9/22.
  * Time:    9:37
- * 类描述： LinearShader
+ * 类描述： LinearGradient
  * LinearGradient的作用是实现某一区域内颜色的线性渐变效果。
  *　　LinearGradient的函数原型为：
  *　　public LinearGradient (float x0, float y0, float x1, float y1, int[] colors, float[] positions, Shader.TileMode tile);

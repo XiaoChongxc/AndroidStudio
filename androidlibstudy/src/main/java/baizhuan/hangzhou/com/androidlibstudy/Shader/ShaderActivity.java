@@ -36,6 +36,10 @@ public class ShaderActivity extends BaseActivity {
 
         list = new ArrayList();
         list.add("BitmapShader");
+        list.add("LinearGradientActivity效果展示");
+        list.add("LinearGradient应用类1进度文字变色");
+
+
 
         BaseAdapter adapter = new BaseAdapter(list, this);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -48,6 +52,12 @@ public class ShaderActivity extends BaseActivity {
                 switch (position) {
                     case 0:
                         intent = new Intent(mContext, BitmapShaderActivity.class);
+                        break;
+                    case 1:
+                        intent = new Intent(mContext, LinearGradientActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(mContext, LinearGradientActivity2.class);
                         break;
                 }
                 startActivity(intent);

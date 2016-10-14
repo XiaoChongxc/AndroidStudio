@@ -6,17 +6,16 @@
     android:gravity="center_vertical"
     android:orientation="vertical">
 
-    <baizhuan.hangzhou.com.androidlibstudy.customview.circleImageView.RoundedImageView
+    <ImageView
         android:id="@+id/img1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:scaleType="fitStart"
         android:alpha="1"
-        app:siBorderAlpha="0.7"
-        app:siBorderColor="#cccccc"
-        app:siBorderWidth="2dp"
-        app:siRadius="8dp" />
+        android:src="@mipmap/ic_logo"
+        />
 
     <TextView
         android:id="@+id/text1"

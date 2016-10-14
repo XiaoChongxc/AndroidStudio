@@ -28,7 +28,7 @@
 
 
         <activity android:name=".Shader.LinearGradientActivity"></activity>
-
+        <activity android:name=".Shader.LinearGradientActivity2"></activity>
     </application>
 
 </manifest>
