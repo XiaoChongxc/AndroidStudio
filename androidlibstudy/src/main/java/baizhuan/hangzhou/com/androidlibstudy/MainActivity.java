@@ -13,6 +13,7 @@ import baizhuan.hangzhou.com.androidlibstudy.Image.CircleImageActivity;
 import baizhuan.hangzhou.com.androidlibstudy.PorterDuffXfermode.PorterDuffXfermodeTextActivity;
 import baizhuan.hangzhou.com.androidlibstudy.Rxjava.RxjavaActivity;
 import baizhuan.hangzhou.com.androidlibstudy.Shader.ShaderActivity;
+import baizhuan.hangzhou.com.androidlibstudy.Sticky.StickyActivity;
 import baizhuan.hangzhou.com.androidlibstudy.adapter.BaseAdapter;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("CircleImageView");
         list.add("16种相交模式测试");
         list.add("Shader类测试");
-
+        list.add("悬停吸附 类测试");
         BaseAdapter adapter = new BaseAdapter(list, this);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(adapter);
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(MainActivity.this, ShaderActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(MainActivity.this, StickyActivity.class);
                         break;
                 }
                 startActivity(intent);

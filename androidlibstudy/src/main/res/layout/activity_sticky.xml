@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/ctl_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="44dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="46dp"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:id="@+id/tv_title"
+                        android:background="#289fff"
+                        android:gravity="center"
+                        android:text=" 标题栏"
+                        android:textSize="20dp" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_lable"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:text="我会悬停在 标题栏之下"
+                android:textSize="20dp" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="这是 测试文字1\n这是 测试文字2\n这是 测试文字3\n这是 测试文字4\n这是 测试文字5\n这是 测试文字6\n这是 测试文字7\n这是 测试文字8\n这是 测试文字1\n这是 测试文字2\n这是 测试文字3\n这是 测试文字4\n这是 测试文字5\n这是 测试文字6\n这是 测试文字7\n这是 测试文字8\n"
+                android:textSize="50dp" />
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>
