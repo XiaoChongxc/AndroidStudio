@@ -52,6 +52,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
                 .load(data.get(position).getPath())
                 .placeholder(R.mipmap.ic_logo)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
                 .transform(new GlideCircleTransform(ctx))
                 .into(holder.img);
 
@@ -78,6 +79,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         TextView text;
         @Bind(R.id.img1)
         ImageView img;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

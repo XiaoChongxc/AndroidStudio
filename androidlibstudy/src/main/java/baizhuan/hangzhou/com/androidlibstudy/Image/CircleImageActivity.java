@@ -1,7 +1,7 @@
 package baizhuan.hangzhou.com.androidlibstudy.Image;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -37,7 +37,7 @@ public class CircleImageActivity extends BaseActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        recycler.setLayoutManager(new LinearLayoutManager(mContext));
+        recycler.setLayoutManager(new GridLayoutManager(mContext,2));
          adapter=new ImageAdapter(Constants.getList(),mContext);
         recycler.setAdapter(adapter);
 
