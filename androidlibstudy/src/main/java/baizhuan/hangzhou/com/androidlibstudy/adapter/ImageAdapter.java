@@ -1,6 +1,7 @@
 package baizhuan.hangzhou.com.androidlibstudy.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import baizhuan.hangzhou.com.androidlibstudy.Constants;
-import baizhuan.hangzhou.com.androidlibstudy.Image.glideTransform.GlideCircleTransform;
+import baizhuan.hangzhou.com.androidlibstudy.Image.glideTransform.GlideRoundTransform;
 import baizhuan.hangzhou.com.androidlibstudy.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -52,7 +53,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
                 .load(data.get(position).getPath())
                 .placeholder(R.mipmap.ic_logo)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .transform(new GlideCircleTransform(ctx))
+                .centerCrop()
+                .transform(new GlideRoundTransform(ctx, 8, 4, Color.parseColor("#289fff")))
                 .into(holder.img);
 
 
@@ -78,6 +80,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         TextView text;
         @Bind(R.id.img1)
         ImageView img;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
