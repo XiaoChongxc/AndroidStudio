@@ -53,7 +53,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
                 .load(data.get(position).getPath())
                 .placeholder(R.mipmap.ic_logo)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
                 .transform(new GlideRoundTransform(ctx, 8, 4, Color.parseColor("#289fff")))
                 .into(holder.img);
 
@@ -91,6 +90,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     public interface OnItemClickLintener {
         void onItemclick(int position);
+    }
+
+    public Constants.ImageBean getItemData(int position) {
+        return data.get(position);
     }
 
     public void setOnclickLinstener(OnItemClickLintener lintener) {

@@ -1,9 +1,17 @@
 package baizhuan.hangzhou.com.androidlibstudy.Rxjava;
 
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
+
+import baizhuan.hangzhou.com.androidlibstudy.Https.HttpsUtils;
 import baizhuan.hangzhou.com.androidlibstudy.Rxjava.model.BaseResult;
+import baizhuan.hangzhou.com.androidlibstudy.util.CustomConverterFactory;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -26,14 +34,33 @@ public class HttpAPI {
                 if (retrofit == null) {
                     retrofit = new Retrofit.Builder()
                             .baseUrl("http://www.52wzb.com/wzb2/")
-                            .addConverterFactory(GsonConverterFactory.create())
+                            .addConverterFactory(CustomConverterFactory.create())
                             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                            .client(getClient())
                             .build();
                     return retrofit;
                 }
             }
         }
         return retrofit;
+    }
+
+    public static OkHttpClient getClient() {
+        HttpsUtils.SSLParams mSslParams = HttpsUtils.getSslSocketFactory(null, null, null);
+        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                .hostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
+                })
+                .sslSocketFactory(mSslParams.sSLSocketFactory, mSslParams.trustManager)
+                .build();
+
+        return mOkHttpClient;
+
     }
 
     public static HttpServices getServices() {
@@ -53,6 +80,11 @@ public class HttpAPI {
 
         @POST("app/product/version2")
         Observable<BaseResult> vesion(@Query("version") String tel, @Query("type") String dlmm, @Query("qdsx") String qdsx);
+
+//        @GET("http://blog.csdn.net/chengyingzhilian/article/details/7279494")
+        @GET("https://kyfw.12306.cn/otn/")
+        Observable<String> getHttpsHtml();
+
 
     }
 

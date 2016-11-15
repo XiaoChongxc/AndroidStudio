@@ -41,4 +41,7 @@ dependencies {
     //加载图片 框架
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //Android 5.0 转场动画 辅助类
+    compile 'me.immortalz:transitionhelper:1.0.5'
 }

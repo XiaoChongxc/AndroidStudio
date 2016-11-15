@@ -15,8 +15,8 @@ public class Test {
     public static void main(String[] args) {
         test1();
         test2();
-        test3(20,41,15);
-
+//        test3(20, 41, 15);
+        test4();
 
     }
 
@@ -52,8 +52,57 @@ public class Test {
         for (int i : array) {
             System.out.println(i);
         }
+    }
+
+    public static void test4() {
+        int[] nums = new int[4];
+        for (int i = 0; i < 4; i++) {
+            System.out.println(Math.random() + "");
+            nums[i] = (int) (Math.random() * 14);
+        }
+        String str[] = {"+", "-", "*", "/"};
+        for (String s1 : str) {
+            for (String s2 : str) {
+                for (String s3 : str) {
+                    for (String s4 : str) {
+
+                        for (int num1 : nums) {
+                            for (int num2 : nums) {
+                                if (num1 == num2) continue;
+                                for (int num3 : nums) {
+                                    if (num2 == num3) continue;
+                                    for (int num4 : nums) {
+                                        if (num3 == num4) continue;
 
 
+                                    }
+                                }
+                            }
+
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static int cal(String s, int num1, int num2) {
+        if (s.equals("+")) {
+            return num1 + num2;
+
+        } else if (s.equals("-")) {
+            return num1 - num2;
+
+        } else if (s.equals("*")) {
+            return num1 * num2;
+
+        } else if (s.equals("/")) {
+            return num1 / num2;
+        }
+        return 0;
     }
 
 
