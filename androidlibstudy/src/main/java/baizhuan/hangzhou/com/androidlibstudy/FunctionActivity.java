@@ -26,6 +26,7 @@ public class FunctionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_function);
         ButterKnife.bind(this);
+        functionview.startAnimal();
 
     }
 

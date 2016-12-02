@@ -81,9 +81,12 @@ public class HttpAPI {
         @POST("app/product/version2")
         Observable<BaseResult> vesion(@Query("version") String tel, @Query("type") String dlmm, @Query("qdsx") String qdsx);
 
-//        @GET("http://blog.csdn.net/chengyingzhilian/article/details/7279494")
-        @GET("https://kyfw.12306.cn/otn/")
+        //        @GET("http://blog.csdn.net/chengyingzhilian/article/details/7279494")
+        @GET("https://www.wenzhuanbao.com.cn/package.json")
         Observable<String> getHttpsHtml();
+
+        @GET("http://121.8.249.13:8081/gdmsaec-app/act/AppUser/loginin")
+        Observable<String> getTest(@Query("username") String username, @Query("password") String password );
 
 
     }

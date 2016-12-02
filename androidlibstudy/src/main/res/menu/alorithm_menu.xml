@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/type_view_maopao"  android:title="切换冒泡算法展示" />
+    <item android:id="@+id/type_view_chose"  android:title="切换选择算法展示" />
+
+</menu>

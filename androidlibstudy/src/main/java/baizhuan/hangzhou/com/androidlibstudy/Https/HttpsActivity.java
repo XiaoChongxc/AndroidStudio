@@ -41,7 +41,6 @@ public class HttpsActivity extends BaseActivity {
 
     @OnClick(R.id.btn_connect)
     void onConnection() {
-
 //        Https 测试类
         HttpAPI.getServices().getHttpsHtml()
                 .subscribeOn(Schedulers.io())
@@ -55,6 +54,7 @@ public class HttpsActivity extends BaseActivity {
                     @Override
                     public void onError(Throwable e) {
                         tvContent.setText(e.getMessage());
+
                     }
 
                     @Override
@@ -62,6 +62,23 @@ public class HttpsActivity extends BaseActivity {
                         tvContent.setText(s);
                     }
                 });
+//        RequestBody body = new FormBody.Builder().add("username", "15012551396").add("password", "123456").build();
+//        OkHttpUtils.post("http://121.8.249.13:8081/gdmsaec-app/act/AppUser/loginin", body, new OkHttpUtils.RequestCallBack() {
+//            @Override
+//            public void onSuccess(String resultData) {
+//                try {
+//                    System.out.println(resultData);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    System.out.println("登陆出错" + e.getMessage());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(String error) {
+//                System.out.println("登陆出错" + error);
+//            }
+//        });
 
 //        String url = "https://kyfw.12306.cn/otn/";
 //        String url = "http://blog.csdn.net/chengyingzhilian/article/details/7279494";

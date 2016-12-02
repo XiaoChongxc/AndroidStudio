@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
-import baizhuan.hangzhou.com.gankcopy.adapter.holder.MeiZhiViewHolder;
+import baizhuan.hangzhou.com.gankcopy.adapter.holder.MeizhiViewholder;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 
 /**
@@ -20,6 +20,6 @@ public class MeizhiAdapter extends RecyclerArrayAdapter<GanHuo.Result> {
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MeiZhiViewHolder(parent);
+        return new MeizhiViewholder(parent);
     }
 }

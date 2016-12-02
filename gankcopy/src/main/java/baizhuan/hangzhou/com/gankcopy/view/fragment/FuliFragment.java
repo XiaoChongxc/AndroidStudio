@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import baizhuan.hangzhou.com.gankcopy.R;
-import baizhuan.hangzhou.com.gankcopy.adapter.MeiZhiAdapter;
+import baizhuan.hangzhou.com.gankcopy.adapter.MeizhiAdapter;
 import baizhuan.hangzhou.com.gankcopy.http.APIService;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 import baizhuan.hangzhou.com.gankcopy.util.RecycleSpace;
@@ -43,7 +43,7 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     List<GanHuo.Result> list;
     @Bind(R.id.recycleview)
     EasyRecyclerView recycleview;
-    MeiZhiAdapter adapter2;
+    MeizhiAdapter adapter2;
 
     @Nullable
     @Override
@@ -58,7 +58,7 @@ public class FuliFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         super.onActivityCreated(savedInstanceState);
         list = new ArrayList<>();
 
-        adapter2 = new MeiZhiAdapter(getActivity());
+        adapter2 = new MeizhiAdapter(getActivity());
         recycleview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 //        recycleview.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycleview.setAdapterWithProgress(adapter2);

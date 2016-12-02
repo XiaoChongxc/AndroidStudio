@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import baizhuan.hangzhou.com.gankcopy.R;
-import baizhuan.hangzhou.com.gankcopy.adapter.MeiZhiAdapter;
+import baizhuan.hangzhou.com.gankcopy.adapter.MeizhiAdapter;
 import baizhuan.hangzhou.com.gankcopy.http.APIService;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
 import rx.Subscriber;
@@ -36,7 +36,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private EasyRecyclerView recyclerView;
     private LinearLayout noWIFILayout;
     private List<GanHuo.Result> ganHuoList;
-    private MeiZhiAdapter meiZhiAdapter;
+    private MeizhiAdapter meiZhiAdapter;
 
     private boolean isNetWork = true;
     private String title;
@@ -72,7 +72,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
             StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(staggeredGridLayoutManager);
-            meiZhiAdapter = new MeiZhiAdapter(getContext());
+            meiZhiAdapter = new MeizhiAdapter(getContext());
 
             dealWithAdapter(meiZhiAdapter);
 

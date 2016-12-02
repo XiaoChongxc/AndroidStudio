@@ -1,6 +1,8 @@
 package baizhuan.hangzhou.com.androidlibstudy.customview;
 
-import android.animation.TypeEvaluator;
+import android.animation.Animator;
+import android.animation.FloatEvaluator;
+import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,7 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.BounceInterpolator;
 
 import baizhuan.hangzhou.com.androidlibstudy.util.DensityUtils;
 
@@ -83,14 +85,17 @@ public class FunctionView extends View {
 
     Path mPath;
     int lineColor;
+    private float curNum = 0;
 
+    boolean isRun = false;
+    boolean runAnimal = false;
 
     /***
      * 初始化方法
      */
     private void init() {
-        mPaint =new Paint();
-        mPaint.setTextSize(DensityUtils.dp2px(getContext(),20));
+        mPaint = new Paint();
+        mPaint.setTextSize(DensityUtils.dp2px(getContext(), 20));
         mPaint.setAntiAlias(true);
         padding = DensityUtils.dp2px(getContext(), 10);
         mXaxesColor = Color.BLACK;
@@ -98,10 +103,9 @@ public class FunctionView extends View {
 
         maxXNum = 5;
         startXNum = 0;
-        maxYNum = 10;
+        maxYNum = 2;
         startYNum = 0;
         mPath = new Path();
-        mPath.moveTo(0, 0);
         lineColor = Color.GREEN;
     }
 
@@ -129,7 +133,7 @@ public class FunctionView extends View {
         int perPadding = (mWidth - padding * 2) / (maxXNum - startXNum);
 
         for (int i = 0; i < maxXNum - startXNum; i++) {
-            String curText = (startXNum + i) + "";
+            String curText = (startXNum + i) + "π";
             int curX = padding + i * perPadding;
             //画 文字
             canvas.drawText(curText, 0, curText.length(), curX, mHeight - padding, mPaint);
@@ -140,40 +144,71 @@ public class FunctionView extends View {
         //画 纵轴
 //        canvas.drawLine(padding, padding, padding, mHeight - padding, mPaint);
         mPaint.setColor(mYaxesColor);
-        drawAL(padding, mHeight - padding,padding, padding,  canvas, mPaint);
+        drawAL(padding, mHeight - padding, padding, padding, canvas, mPaint);
 
         perPadding = (mHeight - padding * 2 - textHeight) / (maxYNum - startYNum);
         for (int i = 0; i < maxYNum - startYNum; i++) {
             String curText = (startYNum + i) + "";
-            int curY = mHeight - padding * 2 + textHeight + i * perPadding;
+            int curY = mHeight - padding * 2 - textHeight - i * perPadding;
             //画 文字
-            canvas.drawText(curText, 0, curText.length(), mWidth - padding, curY, mPaint);
+            canvas.drawText(curText, 0, curText.length(), padding - mPaint.measureText(curText), curY, mPaint);
             //画 刻度
-            canvas.drawLine(mWidth - padding, curY, mWidth - padding + DensityUtils.dp2px(getContext(), 2), curY, mPaint);
+            canvas.drawLine(padding, curY, padding + DensityUtils.dp2px(getContext(), 2), curY, mPaint);
         }
+        // 画 函数 线条 y =x1/2;
+        Paint paint2 = new Paint();
+        paint2.setColor(Color.RED);
+        paint2.setAntiAlias(true);
+        paint2.setStrokeWidth(3);
+        paint2.setStyle(Paint.Style.STROKE);
+//        mPaint.setStrokeWidth(2);
 
+        float y = curNum;
+        float x = (float) Math.sqrt(y);
+        float piecePadding = mWidth / (maxXNum - startXNum);
+        if (!isRun) {
+            mPath.moveTo(padding, mHeight - padding * 2 - textHeight );
+            isRun = true;
+        }
+        if (runAnimal) {
+            mPath.lineTo(x * piecePadding + padding, mHeight - padding * 2 - textHeight - y * piecePadding);
+            canvas.drawPath(mPath, paint2);
+        }
+    }
 
-        // 画 函数 线条
-
-        ValueAnimator valueAnimator = ValueAnimator.ofObject(new PointEvaluator(),new Point(startXNum,startYNum),new Point(maxXNum,maxYNum));
-        valueAnimator.setDuration(1000);
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+    public void startAnimal() {
+        runAnimal = true;
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(startXNum, maxXNum);
+        valueAnimator.setDuration(3000);
+        valueAnimator.setInterpolator(new BounceInterpolator());
+        valueAnimator.setEvaluator(new FloatEvaluator());
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-//                mPaint.setColor(lineColor);
-//                Point mPoint = (Point) valueAnimator.getAnimatedValue();
-//                mPath.lineTo(mPoint.getX(), mPoint.getY());
-//                canvas.drawPath(mPath, mPaint);
-//                postInvalidate();
+                curNum = (float) valueAnimator.getAnimatedValue();
+                postInvalidate();
             }
         });
+        valueAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+            }
 
+            @Override
+            public void onAnimationEnd(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
         valueAnimator.start();
-
-//        canvas.drawPath();
-
-
     }
 
 
@@ -235,51 +270,10 @@ public class FunctionView extends View {
         return mathstr;
     }
 
-    class PointEvaluator implements TypeEvaluator<Point> {
-        public PointEvaluator() {
-
-        }
-
+    public class MyFunctionInterpolator implements TimeInterpolator {
         @Override
-        public Point evaluate(float v, Point point, Point t1) {
-            float x = point.getX() * (1 + v);
-
-            return new Point(x, Fmethod(x));
-        }
-    }
-
-    private float Fmethod(float v) {
-
-        return v * v;
-    }
-
-    /***
-     * 坐标点 类
-     */
-    class Point {
-
-        private float x;
-        private float y;
-
-        public float getX() {
-            return x;
-        }
-
-        public void setX(float x) {
-            this.x = x;
-        }
-
-        public float getY() {
-            return y;
-        }
-
-        public void setY(float y) {
-            this.y = y;
-        }
-
-        public Point(float x, float y) {
-            this.x = x;
-            this.y = y;
+        public float getInterpolation(float v) {
+            return v;
         }
     }
 

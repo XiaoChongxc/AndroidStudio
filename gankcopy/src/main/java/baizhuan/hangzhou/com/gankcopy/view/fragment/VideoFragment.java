@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import baizhuan.hangzhou.com.gankcopy.R;
-import baizhuan.hangzhou.com.gankcopy.adapter.MeiZhiAdapter;
+import baizhuan.hangzhou.com.gankcopy.adapter.MeizhiAdapter;
 import baizhuan.hangzhou.com.gankcopy.adapter.TextForAdapter;
 import baizhuan.hangzhou.com.gankcopy.http.APIService;
 import baizhuan.hangzhou.com.gankcopy.model.GanHuo;
@@ -44,7 +44,7 @@ public class VideoFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     List<GanHuo.Result> list;
     @Bind(R.id.recycleview)
     EasyRecyclerView recycleview;
-    MeiZhiAdapter adapter;
+    MeizhiAdapter adapter;
     TextForAdapter adapter2;
 
     @Nullable
