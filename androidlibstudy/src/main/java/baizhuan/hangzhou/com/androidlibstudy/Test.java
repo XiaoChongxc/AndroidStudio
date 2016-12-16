@@ -12,13 +12,27 @@ import java.util.Arrays;
  */
 public class Test {
 
+    String str = "Good";
+    char[] ch = {'a', 'b', 'c'};
+
     public static void main(String[] args) {
         test1();
         test2();
 //        test3(20, 41, 15);
-        test4();
+//        test4();
+
+    Test t=new Test();
+        t.change(t.str, t.ch);
+        System.out.println(t.str);
+        System.out.println(t.ch);
 
     }
+    public  void change(String  str,char [] ch){
+        str="Test ok";
+        ch[2]='g';
+    }
+
+
 
 
     //1

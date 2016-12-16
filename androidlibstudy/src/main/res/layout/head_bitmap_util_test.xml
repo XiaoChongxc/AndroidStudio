@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/img_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="宽：" />
+
+        <EditText
+            android:id="@+id/et_width"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高：" />
+
+        <EditText
+            android:id="@+id/et_height"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

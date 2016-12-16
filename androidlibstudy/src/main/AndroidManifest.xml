@@ -46,6 +46,7 @@
         <activity android:name=".bezier.BezierWaveActivity" />
         <activity android:name=".customview.activity.AlorithmActivity" />
         <activity android:name=".customview.activity.UnfoldedScrollActivity" />
+        <activity android:name=".customview.activity.BitmapUtilsTestActivity" />
     </application>
 
 </manifest>

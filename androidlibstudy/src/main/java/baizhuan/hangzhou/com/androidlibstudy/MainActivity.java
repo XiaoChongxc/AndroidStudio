@@ -22,6 +22,7 @@ import baizhuan.hangzhou.com.androidlibstudy.adapter.BaseAdapter;
 import baizhuan.hangzhou.com.androidlibstudy.bezier.BezierActivity;
 import baizhuan.hangzhou.com.androidlibstudy.bezier.BezierWaveActivity;
 import baizhuan.hangzhou.com.androidlibstudy.customview.activity.AlorithmActivity;
+import baizhuan.hangzhou.com.androidlibstudy.customview.activity.BitmapUtilsTestActivity;
 import baizhuan.hangzhou.com.androidlibstudy.customview.activity.UnfoldedScrollActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         list.add("bezier 曲线 测试2");
         list.add(" 算法展示");
         list.add(" 画卷  展开效果");
+        list.add("Bitmap工具类演示");
+
         //****************************
         clasz.add(RxjavaActivity.class);
         clasz.add(CircleImageActivity.class);
@@ -90,6 +93,6 @@ public class MainActivity extends AppCompatActivity {
         clasz.add(BezierWaveActivity.class);
         clasz.add(AlorithmActivity.class);
         clasz.add(UnfoldedScrollActivity.class);
-
+        clasz.add(BitmapUtilsTestActivity.class);
     }
 }

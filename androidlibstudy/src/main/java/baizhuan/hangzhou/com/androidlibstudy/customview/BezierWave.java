@@ -44,6 +44,7 @@ public class BezierWave extends View implements View.OnClickListener {
     int mColor1 = Color.parseColor("#99289fff");
     Path path;
     Path path2;
+    private OnWaveMovingLinstener onWaveMovingLinstener;
 
     Paint paint;
     int mOffset;
@@ -93,6 +94,11 @@ public class BezierWave extends View implements View.OnClickListener {
         path2.close();
         canvas.drawPath(path, paint);
         canvas.drawPath(path2, paint);
+        if (onWaveMovingLinstener != null) {
+            int waveOffset = (int) (mOffset * 1f / mWaveLength * mWaveHeight);
+            onWaveMovingLinstener.onWaveMove(waveOffset);
+        }
+
     }
 
     @Override
@@ -109,7 +115,12 @@ public class BezierWave extends View implements View.OnClickListener {
             }
         });
         animator.start();
+    }
 
-
+    /**
+     * 波浪运动的回调接口
+     */
+    interface OnWaveMovingLinstener {
+        void onWaveMove(int offset);
     }
 }
