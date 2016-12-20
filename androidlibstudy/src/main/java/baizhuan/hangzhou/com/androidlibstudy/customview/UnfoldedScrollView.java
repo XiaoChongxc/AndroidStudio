@@ -1,6 +1,5 @@
 package baizhuan.hangzhou.com.androidlibstudy.customview;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +12,6 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 
 import baizhuan.hangzhou.com.androidlibstudy.R;
@@ -59,6 +57,8 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
     public static final int VIEW_TYPE_MIDDLE = 1;
     public static final int VIEW_TYPE_RIGHT = 2;
 
+    final int DEFAULT_PADDING = DensityUtils.dp2px(getContext(), 8);
+
 
     Paint mPaint;
     Paint mBitmapPaint;
@@ -77,7 +77,7 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
      * 控件 延伸的 最大宽度
      */
     int maxWidth;
-    int padding = DensityUtils.dp2px(getContext(), 10);
+    int padding = DensityUtils.dp2px(getContext(), 8);
 
     //图片的宽度
     int mHeight;
@@ -86,13 +86,11 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
     //内容所在区域
     Rect mContentRect;
 
-
-    private boolean onAnimationing = false;
-
-
     Bitmap leftBitmap;
     Bitmap rightBitmap;
     Paint middlePaint;
+
+    private int[] backgroundRes = new int[]{R.drawable.unfloded_bg_1_1, R.drawable.unfloded_bg_1_2, R.drawable.unfloded_bg_1_3};
 
 
     @Override
@@ -118,16 +116,16 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         bitmap = BitmapUtils.getScanBitmap(bitmap, ImgWidth, Imgheight);
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         mBitmapPaint.setShader(bitmapShader);
+        initBitmap();
+    }
 
+    private void initBitmap() {
         //左边
-
-        leftBitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_1, w, h);
-        rightBitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_2, w, h);
-        Bitmap middlebitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_3, w, h);
+        leftBitmap = BitmapUtils.getScanBitmapbyHeight(getResources(), backgroundRes[0], mHeight);
+        rightBitmap = BitmapUtils.getScanBitmapbyHeight(getResources(), backgroundRes[1], mHeight);
+        Bitmap middlebitmap = BitmapUtils.getScanBitmapbyHeight(getResources(), backgroundRes[2], mHeight);
         BitmapShader shader = new BitmapShader(middlebitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         middlePaint.setShader(shader);
-
-
     }
 
     private void init() {
@@ -139,14 +137,14 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         setOnClickListener(this);
 
         //图的边距
-        int left = DensityUtils.dp2px(getContext(), 35);
-        int right = DensityUtils.dp2px(getContext(), 40);
+        int left = DensityUtils.dp2px(getContext(), 30);
+        int right = DensityUtils.dp2px(getContext(), 30);
         int top = DensityUtils.dp2px(getContext(), 60);
         int bottom = DensityUtils.dp2px(getContext(), 60);
         mContentRect = new Rect(left, top, right, bottom);
 
         //设置 图片延伸的 最小宽度，最大宽度
-        minWidth = DensityUtils.dp2px(getContext(), 50);
+        minWidth = DensityUtils.dp2px(getContext(), 0);
         maxWidth = getWindowsWidth();
 
         middlePaint = new Paint();
@@ -158,11 +156,13 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //画一个 画卷 轴
-        openImage(canvas);
 
         //画背景
         drawBg(canvas);
+        //画一个 画卷 轴
+        openImage(canvas);
+
+
     }
 
     /**
@@ -170,22 +170,37 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
      */
     private void drawBg(Canvas canvas) {
         //
+        int right, left, left2;
         switch (VIEW_TYPE) {
             case VIEW_TYPE_LEFT:
+                right = curLength + mContentRect.left + minWidth;
+                if (right > maxWidth - rightBitmap.getWidth())
+                    right = maxWidth - rightBitmap.getWidth();
                 canvas.drawBitmap(leftBitmap, 0, 0, mPaint);
-                canvas.drawRect(leftBitmap.getWidth(), 0, curLength + mContentRect.left, mHeight, middlePaint);
-                canvas.drawBitmap(rightBitmap, curLength + mContentRect.left, 0, mPaint);
+                canvas.drawRect(leftBitmap.getWidth(), 0, right, mHeight, middlePaint);
+                canvas.drawBitmap(rightBitmap, right, 0, mPaint);
                 break;
             case VIEW_TYPE_MIDDLE:
                 int centroX = maxWidth / 2;
-                canvas.drawBitmap(leftBitmap, centroX - curLength / 2, 0, mPaint);
-                canvas.drawRect(centroX - curLength / 2 - mContentRect.left, 0, centroX + curLength + mContentRect.right, mHeight, middlePaint);
-                canvas.drawBitmap(rightBitmap, centroX + curLength + mContentRect.right, 0, mPaint);
+                left = centroX - curLength / 2 - minWidth / 2 - leftBitmap.getWidth();
+                if (left < 0) left = 0;
+                right = centroX + curLength / 2 + mContentRect.right + minWidth / 2 - rightBitmap.getWidth();
+                if (right > maxWidth - rightBitmap.getWidth())
+                    right = maxWidth - rightBitmap.getWidth();
+
+                canvas.drawBitmap(leftBitmap, left, 0, mPaint);
+                canvas.drawRect(left + leftBitmap.getWidth(), 0, right, mHeight, middlePaint);
+                canvas.drawBitmap(rightBitmap, right, 0, mPaint);
                 break;
             case VIEW_TYPE_RIGHT:
-                canvas.drawBitmap(rightBitmap, maxWidth - rightBitmap.getWidth(), 0, mPaint);
-                canvas.drawRect(maxWidth - rightBitmap.getWidth() - curLength, 0, maxWidth - rightBitmap.getWidth(), mHeight, middlePaint);
-                canvas.drawBitmap(leftBitmap, maxWidth - rightBitmap.getWidth() - curLength - leftBitmap.getWidth(), 0, mPaint);
+                left = maxWidth - rightBitmap.getWidth();
+                left2 = left - curLength - minWidth;
+                right = maxWidth - rightBitmap.getWidth();
+                if (left2 < leftBitmap.getWidth()) left2 = leftBitmap.getWidth();
+
+                canvas.drawBitmap(rightBitmap, left, 0, mPaint);
+                canvas.drawRect(left2, 0, right, mHeight, middlePaint);
+                canvas.drawBitmap(leftBitmap, left2 - leftBitmap.getWidth(), 0, mPaint);
                 break;
 
         }
@@ -203,16 +218,11 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         int ImgWidth = maxWidth - mContentRect.left - mContentRect.right;
 
         Rect rect = null;
+        if (curLength == 0) padding = 0;
+        else padding = DEFAULT_PADDING;
         switch (VIEW_TYPE) {
             case VIEW_TYPE_LEFT:
                 //从左到右 展开
-
-
-                int layoutRight = curLength + mContentRect.left + mContentRect.right + minWidth;
-                //layout  宽度<= maxWidth
-                if (layoutRight > maxWidth) layoutRight = maxWidth;
-
-//                layout(0, layoutTop, layoutRight, layoutTop + mHeight);
 
                 //当前的 图片宽度 <=ImgWidth
                 int ImgRight = minWidth + curLength + mContentRect.left + padding;
@@ -225,39 +235,19 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
                 //中间到两边 展开
                 int centroX = maxWidth / 2;
 
-
-                int layoutleft = centroX - curLength / 2 - mContentRect.left - minWidth / 2;
-                int layoutright = centroX + curLength / 2 + mContentRect.right + minWidth / 2;
-                if (layoutleft < 0) layoutleft = 0;
-                if (layoutright > maxWidth) layoutright = maxWidth;
-
-//                layout(layoutleft, layoutTop, layoutright, layoutTop + mHeight);
-
-
-                int imgleft = centroX - curLength / 2 - minWidth / 2;
-                int imgright = centroX + curLength / 2 + minWidth / 2;
+                int imgleft = centroX - curLength / 2 - minWidth / 2 - padding;
+                int imgright = centroX + curLength / 2 + minWidth / 2 + padding;
                 if (imgleft < mContentRect.left) imgleft = mContentRect.left;
                 if (imgright > maxWidth - mContentRect.right)
                     imgright = maxWidth - mContentRect.right;
-
-                Log.d("TAG", "openImage: left:" + imgleft + "right:" + imgright);
-
                 rect = new Rect(imgleft, 0, imgright, Imgheight);
 
                 break;
             case VIEW_TYPE_RIGHT:
                 //  从右到左
-                int imgLeft = maxWidth - curLength - minWidth;
+                int imgLeft = maxWidth - curLength - minWidth - mContentRect.right - padding;
                 if (imgLeft < mContentRect.left) imgLeft = mContentRect.left;
-
-                Log.d("TAG", "openImage: left:" + imgLeft);
-
                 rect = new Rect(imgLeft, 0, maxWidth - mContentRect.right, Imgheight);
-
-                int layoutLeft = maxWidth - curLength - minWidth - mContentRect.right;
-                if (layoutLeft < 0) layoutLeft = 0;
-
-//                layout(layoutLeft, layoutTop, maxWidth, layoutTop + mHeight);
                 break;
         }
 
@@ -281,27 +271,6 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
                 postInvalidate();
             }
         });
-        onAnimationing = true;
-        animator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                onAnimationing = false;
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
         animator.start();
     }
 
@@ -319,6 +288,17 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         DisplayMetrics dm = resources.getDisplayMetrics();
         int width = dm.widthPixels;
         return width;
+    }
+
+
+    public void changeBackground() {
+        if (backgroundRes[0] == R.drawable.unfloded_bg_1_1) {
+            backgroundRes = new int[]{R.drawable.unfloded_bg_2_1, R.drawable.unfloded_bg_2_3, R.drawable.unfloded_bg_2_2};
+        } else {
+            backgroundRes = new int[]{R.drawable.unfloded_bg_1_1, R.drawable.unfloded_bg_1_2, R.drawable.unfloded_bg_1_3};
+        }
+        initBitmap();
+        postInvalidate();
     }
 
 }

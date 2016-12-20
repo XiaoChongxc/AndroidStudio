@@ -56,6 +56,9 @@ public class UnfoldedScrollActivity extends BaseActivity {
             case R.id.type_right:
                 unfoldedScroll.setVIEW_TYPE(UnfoldedScrollView.VIEW_TYPE_RIGHT);
                 break;
+            case R.id.change_bg:
+                unfoldedScroll.changeBackground();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

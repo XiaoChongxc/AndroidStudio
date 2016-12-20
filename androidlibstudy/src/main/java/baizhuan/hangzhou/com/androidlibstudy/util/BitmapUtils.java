@@ -80,6 +80,59 @@ public class BitmapUtils {
         return result;
     }
 
+    /***
+     *
+     * @param source
+     * @param w
+     * @return
+     */
+    public static Bitmap getScanBitmapbyWidth(Bitmap source,int w){
+
+        int  width=source.getWidth();
+        int height=source.getHeight();
+        int h=w/width*height;
+        Bitmap nBitmap = Bitmap.createScaledBitmap(source, w, h, false);
+        return nBitmap;
+    }
+
+    /**
+     *
+     * @param source
+     * @param h
+     * @return
+     */
+    public static Bitmap getScanBitmapbyHeight(Bitmap source,int h){
+        int  width=source.getWidth();
+        int height=source.getHeight();
+        int w=h/height*width;
+        Bitmap nBitmap = Bitmap.createScaledBitmap(source, w, h, false);
+        return nBitmap;
+    }
+
+    /**
+     *
+     * @param res
+     * @param resourceid
+     * @param h
+     * @return
+     */
+    public static Bitmap getScanBitmapbyHeight(Resources res,int resourceid,int h){
+        return getScanBitmapbyHeight( BitmapFactory.decodeResource(res,resourceid),h);
+    }
+
+    /**
+     *
+     * @param res
+     * @param resourceid
+     * @param h
+     * @return
+     */
+    public static Bitmap getScanBitmapbyWidth(Resources res,int resourceid,int h){
+        return getScanBitmapbyWidth( BitmapFactory.decodeResource(res,resourceid),h);
+    }
+
+
+
 
     /**
      * drawable 转bitmap
@@ -96,6 +149,10 @@ public class BitmapUtils {
         drawable.draw(canvas);
         return bitmap;
     }
+
+
+
+
 
     /**
      * bitmap 转 drawable
@@ -225,6 +282,8 @@ public class BitmapUtils {
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
     }
+
+
 
     /**
      * 将图片保存到本地时进行压缩, 即将图片从Bitmap形式变为File形式时进行压缩,
