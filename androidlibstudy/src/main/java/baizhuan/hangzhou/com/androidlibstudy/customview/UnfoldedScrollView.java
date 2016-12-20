@@ -89,6 +89,12 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
 
     private boolean onAnimationing = false;
 
+
+    Bitmap leftBitmap;
+    Bitmap rightBitmap;
+    Paint middlePaint;
+
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 //      EXACTLY：一般是设置了明确的值或者是MATCH_PARENT
@@ -113,6 +119,15 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         mBitmapPaint.setShader(bitmapShader);
 
+        //左边
+
+        leftBitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_1, w, h);
+        rightBitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_2, w, h);
+        Bitmap middlebitmap = BitmapUtils.getScanBitmap(getResources(), R.drawable.unfloded_bg_1_3, w, h);
+        BitmapShader shader = new BitmapShader(middlebitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+        middlePaint.setShader(shader);
+
+
     }
 
     private void init() {
@@ -134,6 +149,9 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         minWidth = DensityUtils.dp2px(getContext(), 50);
         maxWidth = getWindowsWidth();
 
+        middlePaint = new Paint();
+        middlePaint.setAntiAlias(true);
+
 
     }
 
@@ -142,20 +160,35 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
     protected void onDraw(Canvas canvas) {
         //画一个 画卷 轴
         openImage(canvas);
+
+        //画背景
+        drawBg(canvas);
     }
 
     /**
      * 画背景
      */
-    private void drawBg(Canvas canvas ,int  type) {
+    private void drawBg(Canvas canvas) {
+        //
+        switch (VIEW_TYPE) {
+            case VIEW_TYPE_LEFT:
+                canvas.drawBitmap(leftBitmap, 0, 0, mPaint);
+                canvas.drawRect(leftBitmap.getWidth(), 0, curLength + mContentRect.left, mHeight, middlePaint);
+                canvas.drawBitmap(rightBitmap, curLength + mContentRect.left, 0, mPaint);
+                break;
+            case VIEW_TYPE_MIDDLE:
+                int centroX = maxWidth / 2;
+                canvas.drawBitmap(leftBitmap, centroX - curLength / 2, 0, mPaint);
+                canvas.drawRect(centroX - curLength / 2 - mContentRect.left, 0, centroX + curLength + mContentRect.right, mHeight, middlePaint);
+                canvas.drawBitmap(rightBitmap, centroX + curLength + mContentRect.right, 0, mPaint);
+                break;
+            case VIEW_TYPE_RIGHT:
+                canvas.drawBitmap(rightBitmap, maxWidth - rightBitmap.getWidth(), 0, mPaint);
+                canvas.drawRect(maxWidth - rightBitmap.getWidth() - curLength, 0, maxWidth - rightBitmap.getWidth(), mHeight, middlePaint);
+                canvas.drawBitmap(leftBitmap, maxWidth - rightBitmap.getWidth() - curLength - leftBitmap.getWidth(), 0, mPaint);
+                break;
 
-
-
-
-
-        //画
-
-
+        }
 
 
     }
