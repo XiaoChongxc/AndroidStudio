@@ -72,9 +72,6 @@ public class BitmapUtils {
      * @return
      */
     public static Bitmap getScanBitmap(Resources res, int resourid, int w, int h) {
-        //全部转为dp单位
-        w = (int) px2dp(res, w);
-        h = (int) px2dp(res, h);
         Bitmap nBitmap = decodeSampledBitmapFromResource(res, resourid, w, h);
         Bitmap result = getScanBitmap(nBitmap, w, h);
         return result;
@@ -90,7 +87,7 @@ public class BitmapUtils {
 
         int  width=source.getWidth();
         int height=source.getHeight();
-        int h=w/width*height;
+        int h= (int) (1f*w/width*height);
         Bitmap nBitmap = Bitmap.createScaledBitmap(source, w, h, false);
         return nBitmap;
     }
@@ -104,7 +101,7 @@ public class BitmapUtils {
     public static Bitmap getScanBitmapbyHeight(Bitmap source,int h){
         int  width=source.getWidth();
         int height=source.getHeight();
-        int w=h/height*width;
+        int w= (int) (1f*h/height*width);
         Bitmap nBitmap = Bitmap.createScaledBitmap(source, w, h, false);
         return nBitmap;
     }
@@ -243,8 +240,8 @@ public class BitmapUtils {
      */
     public static int calculateInSampleSize(Resources res, BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // 原始图片的宽高  要进行密度转换，不然不同的 分辨率，加载出来的 大小不一致
-        final int height = (int) px2dp(res, options.outHeight);
-        final int width = (int) px2dp(res, options.outWidth);
+        final int height =  options.outHeight;
+        final int width = options.outWidth;
         int inSampleSize = 1;
         if (height > reqHeight || width > reqWidth) {
             final int halfHeight = height / 2;

@@ -57,7 +57,7 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
     public static final int VIEW_TYPE_MIDDLE = 1;
     public static final int VIEW_TYPE_RIGHT = 2;
 
-    final int DEFAULT_PADDING = DensityUtils.dp2px(getContext(), 8);
+    final int DEFAULT_PADDING = DensityUtils.dp2px(getContext(), 11);
 
 
     Paint mPaint;
@@ -77,7 +77,7 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
      * 控件 延伸的 最大宽度
      */
     int maxWidth;
-    int padding = DensityUtils.dp2px(getContext(), 8);
+    int padding =DEFAULT_PADDING;
 
     //图片的宽度
     int mHeight;
@@ -137,8 +137,8 @@ public class UnfoldedScrollView extends View implements View.OnClickListener {
         setOnClickListener(this);
 
         //图的边距
-        int left = DensityUtils.dp2px(getContext(), 30);
-        int right = DensityUtils.dp2px(getContext(), 30);
+        int left = DensityUtils.dp2px(getContext(), 40);
+        int right = DensityUtils.dp2px(getContext(), 40);
         int top = DensityUtils.dp2px(getContext(), 60);
         int bottom = DensityUtils.dp2px(getContext(), 60);
         mContentRect = new Rect(left, top, right, bottom);
