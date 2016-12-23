@@ -47,6 +47,8 @@
         <activity android:name=".ExpandListView.ExpandListActivity" />
         <activity android:name=".ExpandListView.ExpressDetailActivity" />
         <activity android:name=".threeListview.ThreeListActivity" />
+        <activity android:name=".RecycleView.headgrid.ActivityHeadgrid" />
+
 
     </application>
 
