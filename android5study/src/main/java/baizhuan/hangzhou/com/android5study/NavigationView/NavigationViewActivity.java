@@ -26,6 +26,7 @@ import baizhuan.hangzhou.com.android5study.ExpandListView.ExpressDetailActivity;
 import baizhuan.hangzhou.com.android5study.Palette.PaletteActivity;
 import baizhuan.hangzhou.com.android5study.R;
 import baizhuan.hangzhou.com.android5study.RecycleView.RecycleViewActivity;
+import baizhuan.hangzhou.com.android5study.RecycleView.headgrid.ActivityHeadgrid;
 import baizhuan.hangzhou.com.android5study.Ripple.RippleActivity;
 import baizhuan.hangzhou.com.android5study.TabLayout.TabLayoutActivity;
 import baizhuan.hangzhou.com.android5study.TextInputLayout.TextInputLayoutActivity;
@@ -107,7 +108,7 @@ public class NavigationViewActivity extends BaseActivity {
         final String[] datas = getResources().getStringArray(R.array.demo_item);
         final Class[] clazz = {CoordinatiorLayoutActivity.class, BehaviorTest1Activity.class, AppBarLayoutActivity.class, CollapsingToolbarLayoutActivity.class, CollapsingToolbarBehaviorActivity.class,CollapsingToolbarBehaviorActivity2.class,
                 TabLayoutActivity.class, TextInputLayoutActivity.class, TextSelectionActivity.class, CardViewActivity.class, PaletteActivity.class, RippleActivity.class, ToolbarActivity.class, RecycleViewActivity.class,
-                TextureViewActivity.class, ExpandListActivity.class, ExpressDetailActivity.class, ThreeListActivity.class};
+                TextureViewActivity.class, ExpandListActivity.class, ExpressDetailActivity.class, ThreeListActivity.class, ActivityHeadgrid.class};
         recycle.setLayoutManager(new LinearLayoutManager(this));
         NavigationViewAdapter adapter = new NavigationViewAdapter(this, datas);
         recycle.setAdapter(adapter);
