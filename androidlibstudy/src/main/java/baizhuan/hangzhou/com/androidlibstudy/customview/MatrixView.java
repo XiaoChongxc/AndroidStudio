@@ -86,6 +86,9 @@ public class MatrixView  extends ImageView{
 
         canvas.drawBitmap(mBitmap,matrix,mPaint);
         Log.d("TAG", "onDraw: matrix:"+matrix.toString());
+        if(animator==null){
+            matrix.reset();
+        }
         if(animator!=null && animator.isRunning()){
             matrix.reset();
         }
