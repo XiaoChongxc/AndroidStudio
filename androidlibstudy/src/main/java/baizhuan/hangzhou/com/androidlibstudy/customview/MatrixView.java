@@ -48,6 +48,8 @@ public class MatrixView  extends ImageView{
     Bitmap mBitmap;
 
 
+
+    ValueAnimator animator;
     private void  init(){
         mPaint=new Paint();
         mPaint.setAntiAlias(true);
@@ -84,8 +86,11 @@ public class MatrixView  extends ImageView{
 
         canvas.drawBitmap(mBitmap,matrix,mPaint);
         Log.d("TAG", "onDraw: matrix:"+matrix.toString());
-        matrix.reset();
+        if(animator!=null && animator.isRunning()){
+            matrix.reset();
+        }
         canvas.restore();
+
     }
 
 
@@ -125,7 +130,7 @@ public class MatrixView  extends ImageView{
      * @param sx
      */
     public  void  setAnimalScanle(float osx,float sx){
-        ValueAnimator animator=ValueAnimator.ofFloat(osx,sx);
+         animator=ValueAnimator.ofFloat(osx,sx);
         animator.setDuration(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -144,7 +149,7 @@ public class MatrixView  extends ImageView{
      * @param r
      */
     public  void  setAnimalRotate(float or,float r){
-        ValueAnimator animator=ValueAnimator.ofFloat(or,r);
+         animator=ValueAnimator.ofFloat(or,r);
         animator.setDuration(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -164,7 +169,7 @@ public class MatrixView  extends ImageView{
      * @param x
      */
     public  void  setAnimalTranslate(float ox,float x){
-        ValueAnimator animator=ValueAnimator.ofFloat(ox,x);
+         animator=ValueAnimator.ofFloat(ox,x);
         animator.setDuration(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -183,7 +188,7 @@ public class MatrixView  extends ImageView{
      * @param x
      */
     public  void  setAnimalSkew(float ox,float x){
-        ValueAnimator animator=ValueAnimator.ofFloat(ox,x);
+         animator=ValueAnimator.ofFloat(ox,x);
         animator.setDuration(2000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
