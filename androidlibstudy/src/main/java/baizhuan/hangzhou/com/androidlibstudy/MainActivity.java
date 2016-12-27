@@ -24,6 +24,7 @@ import baizhuan.hangzhou.com.androidlibstudy.bezier.BezierWaveActivity;
 import baizhuan.hangzhou.com.androidlibstudy.customview.activity.AlorithmActivity;
 import baizhuan.hangzhou.com.androidlibstudy.customview.activity.BitmapUtilsTestActivity;
 import baizhuan.hangzhou.com.androidlibstudy.customview.activity.UnfoldedScrollActivity;
+import baizhuan.hangzhou.com.androidlibstudy.matrix.MatrixActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(" 算法展示");
         list.add(" 画卷  展开效果");
         list.add("Bitmap工具类演示");
+        list.add("Matrix  练习类");
 
         //****************************
         clasz.add(RxjavaActivity.class);
@@ -94,5 +96,6 @@ public class MainActivity extends AppCompatActivity {
         clasz.add(AlorithmActivity.class);
         clasz.add(UnfoldedScrollActivity.class);
         clasz.add(BitmapUtilsTestActivity.class);
+        clasz.add(MatrixActivity.class);
     }
 }
